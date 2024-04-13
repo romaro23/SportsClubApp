@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace SportsClubApp
 {
     /// <summary>
-    /// Interaction logic for HomePage.xaml
+    /// Interaction logic for HomeTrainer.xaml
     /// </summary>
-    public partial class HomePage : Window
+    public partial class HomeTrainer : Window
     {
-        public HomePage()
+        public HomeTrainer()
         {
             InitializeComponent();
         }

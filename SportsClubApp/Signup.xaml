@@ -1,4 +1,4 @@
-﻿<Window x:Class="SportsClubApp.HomePage"
+﻿<Window x:Class="SportsClubApp.Signup"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -39,7 +39,7 @@
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border x:Name="border"
                                 
-                        CornerRadius="13"                                Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                        CornerRadius="10"                                Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
                             <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -56,8 +56,6 @@
                                 </Setter>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <!--<Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>-->
                                 <Setter Property="Effect">
                                     <Setter.Value>
                                         <DropShadowEffect BlurRadius="10" ShadowDepth="5" Color="Black"></DropShadowEffect>
@@ -74,10 +72,54 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
+        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
+        <Style x:Key="EmailInput" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                        <Condition Property="IsSelectionActive" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
     <Grid Height="500">
+        <Viewbox HorizontalAlignment="Center" Height="390" VerticalAlignment="Center" Width="280" Stretch="Fill">
 
-        <Rectangle HorizontalAlignment="Center" Height="390" VerticalAlignment="Center" Width="280" Fill="#FF32D5D5" RadiusX="50" RadiusY="50" RenderTransformOrigin="1.263,0.75"/>
+            <Rectangle Fill="#FF32D5D5" RadiusX="50" RadiusY="50" RenderTransformOrigin="1.263,0.75" Height="390" Width="280"/>
+        </Viewbox>
         <Rectangle HorizontalAlignment="Center" Height="60" Margin="0,79,0,0" VerticalAlignment="Top" Width="61" Fill="#FF3FC5CD" RadiusX="15" RadiusY="15"/>
         <Label Content="Sportify" HorizontalAlignment="Center" Margin="0,134,0,0" VerticalAlignment="Top" Width="66" Height="29" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
@@ -89,10 +131,19 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="Перемога буде" HorizontalAlignment="Center" Margin="0,157,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="32" Height="51" Width="236" Foreground="#FF8F807D"/>
-        <Label Content="Join the club&#xD;&#xA;" HorizontalAlignment="Center" Margin="0,193,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="13" Foreground="#FF8F807D"/>
+        <Label Content="Sign up" HorizontalAlignment="Center" Margin="0,156,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="32" Height="51" Width="128" Foreground="#FF597075"/>
+        <Label Content="Join the club&#xA;" HorizontalAlignment="Center" Margin="0,199,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="13" Foreground="#FF597075"/>
         <Image Source="C:\Users\Romaro\Downloads\pngwing.com.png" Margin="419,80,419,362" Stretch="None"/>
-        <Button x:Name="LoginButton" Style="{DynamicResource LoginButton}" Content="Log in" HorizontalAlignment="Center" Height="25" Margin="0,349,0,0" VerticalAlignment="Top" Width="130" BorderBrush="White" Background="#FFFFF6F6" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="15" Foreground="#FF8F807D"/>
+        <Button x:Name="SignupButton"
+                Click="SignupButton_Click" Style="{DynamicResource LoginButton}" Content="Sign up" HorizontalAlignment="Center" Height="25" Margin="0,372,0,0" VerticalAlignment="Top" Width="130" BorderBrush="White" Background="#FFFFF6F6" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="15" Foreground="#FF597075"/>
+        <TextBox Style="{DynamicResource EmailInput}" TextWrapping="NoWrap"  
+                 x:Name ="EmailInput" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="Enter your email address" Margin="338,235,337,235"  Width="225" Height="30" Background="#FFD9D9D9" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="11" Foreground="#7F597075"/>
+        <PasswordBox x:Name="PasswordInput"  HorizontalAlignment="Center"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"   Margin="0,287,0,0" VerticalAlignment="Top" Width="210" Height="30" Background="#FFD9D9D9" Password=""/>
+        <Label x:Name="PasswordLabel"  Content="Create a new password" HorizontalAlignment="Center" Margin="0,290,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="11" IsHitTestVisible="False" Foreground="#7F597075"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="334,218,0,0" VerticalAlignment="Top" Foreground="#FF597075" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="10"/>
+        <Label Content="Password (must contain at least one number)" HorizontalAlignment="Left" Margin="334,270,0,0" VerticalAlignment="Top" Foreground="#FF597075" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="10"/>
+        <PasswordBox x:Name="ConfirmPasswordInput"  HorizontalAlignment="Center"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"   Margin="0,325,0,0" VerticalAlignment="Top" Width="210" Height="30" Background="#FFD9D9D9" Password=""/>
+        <Label x:Name="ConfirmPasswordLabel"  Content="Confirm your password" HorizontalAlignment="Center" Margin="0,328,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="11" IsHitTestVisible="False" Foreground="#7F597075"/>
 
     </Grid>
 </Window>
