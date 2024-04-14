@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SportsClubApp"
         mc:Ignorable="d"
-        Title="HomeClient" Height="450" Width="800">
-    <Grid>
-        
+        Title="HomeClient" Height="450" Width="800" WindowStyle="ToolWindow" ResizeMode="NoResize">
+    <Grid Width="903" Height="500" Background="#FFD9D9D9">
+        <Rectangle HorizontalAlignment="Left" Height="500" Margin="129,0,0,0" VerticalAlignment="Center" Width="562" >
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="C:\Users\Romaro\Downloads\gym1.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button x:Name="Home" Click="Home_Click"
+             Content="Home" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="10,22,0,0" VerticalAlignment="Top" Width="110" BorderBrush="{x:Null}" Background="#FF32D5D5" FontFamily="Bahnschrift" FontSize="13" Foreground="Black" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold"/>
+        <Image Source="C:\Users\Romaro\Downloads\pngwing.com (1).png" Margin="15,20,855,446" Width="30"></Image>
+        <Button x:Name="Chats"
+            Content="Chats" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="10,69,0,0" VerticalAlignment="Top" Width="110" BorderBrush="{x:Null}" Background="#FF32D5D5" FontFamily="Bahnschrift" FontSize="13" Foreground="Black" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Click="OpenChats"/>
+        <Button x:Name="Profile"
+            Content="Profile" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="10,117,0,0" VerticalAlignment="Top" Width="110" BorderBrush="{x:Null}" Background="#FF32D5D5" FontFamily="Bahnschrift" FontSize="13" Foreground="Black" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold"/>
+        <Image Source="C:\Users\Romaro\Downloads\pngwing.com (2).png" Margin="17,70,857,400"/>
+        <Image Source="C:\Users\Romaro\Downloads\pngwing.com (3).png" Margin="19,118,859,353" Width="22" Height="29"></Image>
+        <Rectangle HorizontalAlignment="Left" RadiusX ="7" RadiusY="7"  Height="28" Margin="708,60,0,0" VerticalAlignment="Top" Width="70" Fill="#FF32D5D5"/>
+        <Ellipse HorizontalAlignment="Left" Height="50" Margin="718,5,0,0" VerticalAlignment="Top" Width="50" Fill="#FF32D5D5"/>
+        <Image Source="C:\Users\Romaro\Downloads\pngwing.com (3).png" Margin="732,16,149,455" Width="22" Height="29"/>
+        <Label Content="Jonh Doe" HorizontalAlignment="Left" Margin="713,57,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <Label Name="Occupation" Content="Client" HorizontalAlignment="Left" Margin="725,69,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
+        <Button Style="{DynamicResource Out}" HorizontalAlignment="Left" Height="50" Margin="40,360,0,0" VerticalAlignment="Top" Width="50" Background="#00DDDDDD" Foreground="#00000000" BorderBrush="#00707070" Click="Out">
+            <Image HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Source="/pngwing.com (7).png" RenderTransformOrigin="0.232,0.177"/>
+        </Button>
+        <Frame x:Name="Frame" NavigationUIVisibility="Hidden" Margin="129,0,212,65"/>
     </Grid>
 </Window>

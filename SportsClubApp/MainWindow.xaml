@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SportsClubApp"
         mc:Ignorable="d"
-        Title="Sportify" Height="502" Width="900" Cursor="Arrow" WindowStyle="ToolWindow" ResizeMode="NoResize" Background="#FFD9D9D9">
+        Title="Sportify" Height="502" Width="900" Cursor="Arrow" ResizeMode="NoResize" WindowStyle="ToolWindow" Topmost="True" FontFamily="Bahnschrift" FontWeight="Bold" Opacity="1">
+    <Window.Background>
+        <ImageBrush ImageSource="C:\Users\Romaro\Downloads\gym.jpg"></ImageBrush>
+    </Window.Background>
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -116,12 +119,12 @@
         </Style>
     </Window.Resources>
     <Grid Height="500">
-        <Viewbox HorizontalAlignment="Center" Height="390" VerticalAlignment="Center" Width="280" Stretch="Fill">
+        <Viewbox HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="280" Stretch="Fill" Margin="319,35,0,0">
 
             <Rectangle Fill="#FF32D5D5" RadiusX="50" RadiusY="50" RenderTransformOrigin="1.263,0.75" Height="390" Width="280"/>
         </Viewbox>
-        <Rectangle HorizontalAlignment="Center" Height="60" Margin="0,79,0,0" VerticalAlignment="Top" Width="61" Fill="#FF3FC5CD" RadiusX="15" RadiusY="15"/>
-        <Label Content="Sportify" HorizontalAlignment="Center" Margin="0,134,0,0" VerticalAlignment="Top" Width="66" Height="29" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.5,0.5">
+        <Rectangle HorizontalAlignment="Left" Height="60" Margin="428,59,0,0" VerticalAlignment="Top" Width="61" Fill="#FF3FC5CD" RadiusX="15" RadiusY="15"/>
+        <Label Content="Sportify" HorizontalAlignment="Left" Margin="426,114,0,0" VerticalAlignment="Top" Width="66" Height="29" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -131,20 +134,20 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="Log in" HorizontalAlignment="Center" Margin="0,157,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="32" Height="51" Width="100" Foreground="#FF597075"/>
-        <Label Content="Join the club&#xA;" HorizontalAlignment="Center" Margin="0,199,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="13" Foreground="#FF597075"/>
-        <Image Source="C:\Users\Romaro\Downloads\pngwing.com.png" Margin="419,80,419,362" Stretch="None"/>
+        <Label Content="Log in" HorizontalAlignment="Left" Margin="409,137,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="32" Height="51" Width="100" Foreground="#FF597075"/>
+        <Label Content="Join the club&#xA;" HorizontalAlignment="Left" Margin="417,179,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="13" Foreground="#FF597075"/>
+        <Image Source="C:\Users\Romaro\Downloads\pngwing.com.png" Margin="428,60,410,382" Stretch="None"/>
         <Button x:Name="LoginButton" Click="OpenHomeWindow"
-                 Style="{DynamicResource LoginButton}" Content="Log in" HorizontalAlignment="Center" Height="25" Margin="0,349,0,0" VerticalAlignment="Top" Width="130" BorderBrush="White" Background="#FFFFF6F6" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="15" Foreground="#FF597075"/>
+                 Style="{DynamicResource LoginButton}" Content="Log in" HorizontalAlignment="Left" Height="25" Margin="394,329,0,0" VerticalAlignment="Top" Width="130" BorderBrush="White" Background="#FFFFF6F6" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="15" Foreground="#FF597075"/>
         <TextBox Style="{DynamicResource EmailInput}" TextWrapping="NoWrap"  
-                 x:Name ="EmailInput" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="Enter your email address" Margin="338,235,337,235"  Width="225" Height="30" Background="#FFD9D9D9" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="11" Foreground="#7F597075"/>
-        <PasswordBox x:Name="PasswordInput"  HorizontalAlignment="Center"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"   Margin="0,287,0,0" VerticalAlignment="Top" Width="210" Height="30" Background="#FFD9D9D9" Password=""/>
-        <Label x:Name="PasswordLabel"  Content="Enter your password" HorizontalAlignment="Center" Margin="0,290,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="11" IsHitTestVisible="False" Foreground="#7F597075"/>
-        <Label Content="Don't have an account yet?" HorizontalAlignment="Center" Margin="0,389,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="10" Foreground="#FF597075"/>
+                 x:Name ="EmailInput" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="Enter your email address" Margin="347,215,328,255"  Width="225" Height="30" Background="#FFD9D9D9" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="11" Foreground="#7F597075"/>
+        <PasswordBox x:Name="PasswordInput"  HorizontalAlignment="Left"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"   Margin="347,267,0,0" VerticalAlignment="Top" Width="210" Height="30" Background="#FFD9D9D9" Password=""/>
+        <Label x:Name="PasswordLabel"  Content="Enter your password" HorizontalAlignment="Left" Margin="402,270,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="11" IsHitTestVisible="False" Foreground="#7F597075"/>
+        <Label Content="Don't have an account yet?" HorizontalAlignment="Left" Margin="395,369,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="10" Foreground="#FF597075"/>
         <Button x:Name="SignupButton" Click="OpenSignupWindow"
-            Style="{DynamicResource ButtonStyle1}" Content="Sign up" HorizontalAlignment="Center" Height="20" Margin="0,411,0,0" VerticalAlignment="Top" Width="64" BorderBrush="White" Background="#FFFFF6F6" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="10" Foreground="#FF597075"/>
-        <Label Content="Email" HorizontalAlignment="Left" Margin="334,218,0,0" VerticalAlignment="Top" Foreground="#FF597075" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="10"/>
-        <Label Content="Password (must contain at least one number)" HorizontalAlignment="Left" Margin="334,270,0,0" VerticalAlignment="Top" Foreground="#FF597075" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="10"/>
+            Style="{DynamicResource ButtonStyle1}" Content="Sign up" HorizontalAlignment="Left" Height="20" Margin="427,391,0,0" VerticalAlignment="Top" Width="64" BorderBrush="White" Background="#FFFFF6F6" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="10" Foreground="#FF597075"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="343,198,0,0" VerticalAlignment="Top" Foreground="#FF597075" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="10"/>
+        <Label Content="Password (must contain at least one number)" HorizontalAlignment="Left" Margin="347,250,0,0" VerticalAlignment="Top" Foreground="#FF597075" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="10"/>
 
     </Grid>
 </Window>

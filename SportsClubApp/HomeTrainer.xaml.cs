@@ -19,9 +19,26 @@ namespace SportsClubApp
     /// </summary>
     public partial class HomeTrainer : Window
     {
+        private Chats chats = new Chats();
+        private Home home = new Home();
         public HomeTrainer()
         {
             InitializeComponent();
+        }
+        private void OpenChats(object sender, RoutedEventArgs e)
+        {
+            Frame.Content = chats;
+        }
+        private void Home_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Content = home;
+        }
+
+        private void Out(object sender, RoutedEventArgs e)
+        {
+            MainWindow window = new MainWindow();
+            window.Show();
+            this.Close();
         }
     }
 }

@@ -48,6 +48,15 @@ namespace SportsClubApp
                 MessageBoxResult result;
                 result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
             }
+            else if(!email.Text.Contains('@'))
+            {
+                string messageBoxText = "Please, enter a valid email ('@' expected).";
+                string caption = "";
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                MessageBoxResult result;
+                result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
+            }
             else
             {
                 return true;
@@ -61,11 +70,11 @@ namespace SportsClubApp
             {
                 switch (EmailInput.Text)
                 {
-                    case "administrator@gmail.com":
+                    case string a when a.Contains("admin"):
                         HomeAdmin homeAdmin = new HomeAdmin();
                         homeAdmin.Show();
                         break;
-                    case "trainer@gmail.com":
+                    case string b when b.Contains("trainer"):
                         HomeTrainer homeTrainer = new HomeTrainer();
                         homeTrainer.Show();
                         break;

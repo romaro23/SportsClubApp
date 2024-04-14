@@ -8,4 +8,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="pngwing.com %287%29.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="pngwing.com (7).png" />
+  </ItemGroup>
+
 </Project>
