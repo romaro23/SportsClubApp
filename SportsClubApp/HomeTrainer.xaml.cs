@@ -21,9 +21,12 @@ namespace SportsClubApp
     {
         private Chats chats = new Chats();
         private Home home = new Home();
-        public HomeTrainer()
+        private static string name_;
+        public HomeTrainer(string name)
         {
             InitializeComponent();
+            name_ = name;
+            Name.Content = name_;
         }
         private void OpenChats(object sender, RoutedEventArgs e)
         {

@@ -10,6 +10,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Linq;
+using System.IO;
 namespace SportsClubApp
 {
     /// <summary>
@@ -68,22 +69,8 @@ namespace SportsClubApp
 
             if (VerifyData(EmailInput, PasswordInput))
             {
-                switch (EmailInput.Text)
-                {
-                    case string a when a.Contains("admin"):
-                        HomeAdmin homeAdmin = new HomeAdmin();
-                        homeAdmin.Show();
-                        break;
-                    case string b when b.Contains("trainer"):
-                        HomeTrainer homeTrainer = new HomeTrainer();
-                        homeTrainer.Show();
-                        break;
-                    default:
-                        HomeClient homeClient = new HomeClient();
-                        homeClient.Show();
-                        break;
-
-                }
+                HomeClient homeClient = new HomeClient();
+                homeClient.Show();
                 this.Close();
             }
 
@@ -147,6 +134,9 @@ namespace SportsClubApp
                 }
                 else
                 {
+                    StreamWriter writer = new StreamWriter("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Clients.txt");
+                    writer.WriteLine(EmailInput.Text + " " + PasswordInput.Password);
+                    writer.Close();
                     OpenHomeWindow(sender, e);
                     this.Close();
                 }

@@ -30,5 +30,18 @@
             <Image HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Source="/pngwing.com (7).png" RenderTransformOrigin="0.232,0.177"/>
         </Button>
         <Frame x:Name="Frame" NavigationUIVisibility="Hidden" Margin="129,0,212,65"/>
+        <Rectangle Height="31" Width="82" Margin="705,106,116,0" Stroke="#FF32D5D5" VerticalAlignment="Top" RadiusX="10" RadiusY="10"/>
+        <Label x:Name="Occupation_Copy" Content="Your trainer" HorizontalAlignment="Left" Margin="712,88,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
+        <Button x:Name="Profile_Copy" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="705,176,0,0" VerticalAlignment="Top" Width="82" FontFamily="Bahnschrift" FontSize="13" Foreground="#FF32D5D5" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Background="#FF32D5D5" IsEnabled="False">
+            <Image Source="C:\Users\Romaro\Downloads\pngwing.com (3).png" Width="20" Height="21" Margin="0,0,57,0"/>
+        </Button>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="976,148,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Occupation_Copy1" Content="Our trainers" HorizontalAlignment="Left" Margin="714,160,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
+        <Button x:Name="Profile_Copy1" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="705,212,0,0" VerticalAlignment="Top" Width="82" FontFamily="Bahnschrift" FontSize="13" Foreground="#FF32D5D5" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Background="#FF32D5D5" IsEnabled="False">
+            <Image Source="C:\Users\Romaro\Downloads\pngwing.com (3).png" Width="20" Height="21" Margin="0,0,57,0"/>
+        </Button>
+        <Button x:Name="Profile_Copy2" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="705,248,0,0" VerticalAlignment="Top" Width="82" FontFamily="Bahnschrift" FontSize="13" Foreground="#FF32D5D5" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Background="#FF32D5D5" IsEnabled="False">
+            <Image Source="C:\Users\Romaro\Downloads\pngwing.com (3).png" Width="20" Height="21" Margin="0,0,57,0" />
+        </Button>
     </Grid>
 </Window>

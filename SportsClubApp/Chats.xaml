@@ -17,5 +17,6 @@
                 <ImageBrush ImageSource="C:\Users\Romaro\Downloads\gym2.jpg" />
             </Rectangle.Fill>
         </Rectangle>
+        
     </Grid>
 </Page>

@@ -1,4 +1,7 @@
-﻿using System.Text;
+﻿using System.CodeDom;
+using System.ComponentModel.DataAnnotations;
+using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +22,7 @@ namespace SportsClubApp
         public MainWindow()
         {
             InitializeComponent();
+            
             EmailInput.GotFocus += EmailGotFocus;
             EmailInput.LostFocus += EmailLostFocus;
             PasswordInput.GotFocus += PasswordGotFocus;
@@ -66,28 +70,62 @@ namespace SportsClubApp
             }
             return false;
         }
+        private Dictionary<string, string> ReadData(string path, ref string name)
+        {
+            StreamReader reader = new StreamReader(path);
+            Dictionary<string, string> data = new Dictionary<string, string>();
+            while(!reader.EndOfStream)
+            {
+                string line = reader.ReadLine();
+                if (line == "")
+                {
+                    return data;
+                }
+                var words = line.Split(' ');
+                data.Add(words[0], words[1]);
+                if(words.Length > 2)
+                {
+                    name = words[2];
+                }               
+            }
+            reader.Close();
+            return data;
+        }
         private void OpenHomeWindow(object sender, RoutedEventArgs e)
         {
             
             if(VerifyData(EmailInput, PasswordInput)  )
             {
-                switch (EmailInput.Text)
-                {
-                    case string a when a.Contains("admin"):
-                        HomeAdmin homeAdmin = new HomeAdmin();
-                        homeAdmin.Show();
-                        break;
-                    case string b when b.Contains("trainer"):
-                        HomeTrainer homeTrainer = new HomeTrainer();
-                        homeTrainer.Show();
-                        break;
-                    default:
-                        HomeClient homeClient = new HomeClient();
-                        homeClient.Show();
-                        break;
-
+                string trainerName = "";
+                Dictionary<string, string> trainers = ReadData("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Trainers.txt", ref trainerName);
+                Dictionary<string, string> clients = ReadData("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Clients.txt", ref trainerName);
+                if (trainers.TryGetValue(EmailInput.Text, out var foundTrainer) && foundTrainer == PasswordInput.Password)
+                {                   
+                    HomeTrainer homeTrainer = new HomeTrainer(trainerName);
+                    homeTrainer.Show();
+                    Close();
                 }
-                this.Close();
+                else if (clients.TryGetValue(EmailInput.Text, out var foundClient) && foundClient == PasswordInput.Password)
+                {
+                    HomeClient homeClient = new HomeClient();
+                    homeClient.Show();
+                    Close();
+                }
+                else if (EmailInput.Text.Contains("admin"))
+                {
+                    HomeAdmin homeAdmin = new HomeAdmin();
+                    homeAdmin.Show();
+                    Close();
+                }
+                else
+                {
+                    string messageBoxText = "An account doesn't exist.";
+                    string caption = "";
+                    MessageBoxButton button = MessageBoxButton.OK;
+                    MessageBoxImage icon = MessageBoxImage.Warning;
+                    MessageBoxResult result;
+                    result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
+                }
             }
             
         }
