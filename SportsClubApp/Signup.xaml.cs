@@ -134,7 +134,7 @@ namespace SportsClubApp
                 }
                 else
                 {
-                    StreamWriter writer = new StreamWriter("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Clients.txt");
+                    StreamWriter writer = new StreamWriter("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Clients.txt", true);
                     writer.WriteLine(EmailInput.Text + " " + PasswordInput.Password);
                     writer.Close();
                     OpenHomeWindow(sender, e);

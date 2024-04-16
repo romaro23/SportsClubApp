@@ -22,11 +22,38 @@ namespace SportsClubApp
     {
         private Chats chats = new Chats();
         private Home home = new Home();
+        private static Tuple<string, bool> FirstTrainer = new Tuple<string, bool>("", false);
+        private static Tuple<string, bool> SecondTrainer = new Tuple<string, bool>("", false);
+        private static Tuple<string, bool> ThirdTrainer = new Tuple<string, bool>("", false);
         public HomeClient()
         {
             InitializeComponent();
+            T1.Content = FirstTrainer.Item1;
+            Trainer1.IsEnabled = FirstTrainer.Item2;
+            T2.Content = SecondTrainer.Item1;
+            Trainer2.IsEnabled = SecondTrainer.Item2;
+            T3.Content = ThirdTrainer.Item1;
+            Trainer3.IsEnabled = ThirdTrainer.Item2;
         }
+        public static void InititalizeTrainers(params Tuple<string, bool>[] trainers)
+        {
+            var trainers_ = new (string, bool)[]
+            {
+                (FirstTrainer.Item1, FirstTrainer.Item2),
+                (SecondTrainer.Item1, SecondTrainer.Item2),
+                (ThirdTrainer.Item1, ThirdTrainer.Item2)
+        };
+            
+            for(int i = 0; i < trainers.Length; i++)
+            {
+                trainers_[i].Item1 = trainers[i].Item1;
+                trainers_[i].Item2 = trainers[i].Item2;
+            }
+            FirstTrainer = new Tuple<string, bool>(trainers_[0].Item1, trainers_[0].Item2);
+            SecondTrainer = new Tuple<string, bool>(trainers_[1].Item1, trainers_[1].Item2);
+            ThirdTrainer = new Tuple<string, bool>(trainers_[2].Item1, trainers_[2].Item2);
 
+        }
         private void OpenChats(object sender, RoutedEventArgs e)
         {
             Frame.Content = chats;

@@ -69,28 +69,31 @@
             Content="Profile" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="10,117,0,0" VerticalAlignment="Top" Width="110" BorderBrush="{x:Null}" Background="#FF32D5D5" FontFamily="Bahnschrift" FontSize="13" Foreground="Black" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold"/>
         <Image Source="C:\Users\Romaro\Downloads\pngwing.com (2).png" Margin="17,70,857,400"/>
         <Image Source="C:\Users\Romaro\Downloads\pngwing.com (3).png" Margin="19,118,859,353" Width="22" Height="29"/>
-        <Rectangle HorizontalAlignment="Left" RadiusX ="7" RadiusY="7"  Height="28" Margin="708,60,0,0" VerticalAlignment="Top" Width="70" Fill="#FF32D5D5"/>
-        <Ellipse HorizontalAlignment="Left" Height="50" Margin="718,5,0,0" VerticalAlignment="Top" Width="50" Fill="#FF32D5D5"/>
-        <Image Source="C:\Users\Romaro\Downloads\pngwing.com (3).png" Margin="732,16,149,455" Width="22" Height="29"/>
-        <Label Content="Jonh Doe" HorizontalAlignment="Left" Margin="713,57,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold"/>
+        <Ellipse HorizontalAlignment="Left" Height="50" Margin="714,11,0,0" VerticalAlignment="Top" Width="50" Fill="#FF32D5D5"/>
+        <Grid Margin="701,64,126,402">
+            <Rectangle HorizontalAlignment="Center" RadiusX ="7" RadiusY="7"  Height="34" VerticalAlignment="Center" Width="76" Fill="#FF32D5D5"/>
+            <Label Content="John Doe" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold"/>
+            <Label Name="Occupation" Content="Administrator" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10" RenderTransformOrigin="0.764,0.887" Margin="0,12,0,0"/>
+        </Grid>
+        <Image Source="C:\Users\Romaro\Downloads\pngwing.com (3).png" Margin="728,22,153,449" Width="22" Height="29"/>
         <Button Style="{DynamicResource Out}" Content="Button" HorizontalAlignment="Left" Height="50" Margin="40,360,0,0" VerticalAlignment="Top" Width="50" Background="#00DDDDDD" Foreground="#00000000" BorderBrush="#00707070" Click="Out"/>
-        <Label Name="Occupation" Content="Administrator" HorizontalAlignment="Left" Margin="708,69,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
+
         <Frame x:Name="Frame" NavigationUIVisibility="Hidden" Margin="129,0,212,65"/>
-        <Button x:Name="Trainer1" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="702,113,0,0" VerticalAlignment="Top" Width="82" FontFamily="Bahnschrift" FontSize="13" Foreground="#FF32D5D5" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Background="#FF32D5D5" IsEnabled="False">
+        <Button x:Name="Trainer1" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="698,120,0,0" VerticalAlignment="Top" Width="82" FontFamily="Bahnschrift" FontSize="13" Foreground="#FF32D5D5" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Background="#FF32D5D5" IsEnabled="False">
             <Image Source="C:\Users\Romaro\Downloads\pngwing.com (3).png" Width="20" Height="21" Margin="0,0,57,0"/>
         </Button>
-        <Label x:Name="Occupation_Copy1" Content="Our trainers" HorizontalAlignment="Left" Margin="711,91,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
-        <Button x:Name="Trainer2" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="702,149,0,0" VerticalAlignment="Top" Width="82" FontFamily="Bahnschrift" FontSize="13" Foreground="#FF32D5D5" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Background="#FF32D5D5" IsEnabled="False">
+        <Label x:Name="Occupation_Copy1" Content="Our trainers" HorizontalAlignment="Left" Margin="707,98,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
+        <Button x:Name="Trainer2" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="698,156,0,0" VerticalAlignment="Top" Width="82" FontFamily="Bahnschrift" FontSize="13" Foreground="#FF32D5D5" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Background="#FF32D5D5" IsEnabled="False">
             <Image Source="C:\Users\Romaro\Downloads\pngwing.com (3).png" Width="20" Height="21" Margin="0,0,57,0"/>
         </Button>
-        <Button x:Name="Trainer3" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="702,185,0,0" VerticalAlignment="Top" Width="82" FontFamily="Bahnschrift" FontSize="13" Foreground="#FF32D5D5" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Background="#FF32D5D5" IsEnabled="False">
+        <Button x:Name="Trainer3" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="698,192,0,0" VerticalAlignment="Top" Width="82" FontFamily="Bahnschrift" FontSize="13" Foreground="#FF32D5D5" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Background="#FF32D5D5" IsEnabled="False">
             <Image Source="C:\Users\Romaro\Downloads\pngwing.com (3).png" Width="20" Height="21" Margin="0,0,57,0" />
         </Button>
-        <Button Content="Add a trainer" Style="{DynamicResource ButtonStyle1}" HorizontalAlignment="Left" Height="22" Margin="702,228,0,0" VerticalAlignment="Top" Width="82" Background="#FF32D5D5" FontFamily="Bahnschrift" FontWeight="Bold" Click="Button_Click"/>
+        <Button Content="Add a trainer" Style="{DynamicResource ButtonStyle1}" HorizontalAlignment="Left" Height="22" Margin="698,228,0,0" VerticalAlignment="Top" Width="82" Background="#FF32D5D5" FontFamily="Bahnschrift" FontWeight="Bold" Click="Button_Click"/>
         <TextBox Style="{DynamicResource InputBox}" Name="Name" Text="Enter a name" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="19" Margin="703,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" Visibility="Hidden" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="9" Foreground="#7F000000"/>
-        <Label x:Name="T1" HorizontalAlignment="Left" Margin="719,119,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
-        <Label x:Name="T2" HorizontalAlignment="Left" Margin="719,153,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
-        <Label x:Name="T3" HorizontalAlignment="Left" Margin="719,189,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
+        <Label x:Name="T1" HorizontalAlignment="Left" Margin="714,126,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
+        <Label x:Name="T2" HorizontalAlignment="Left" Margin="714,160,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
+        <Label x:Name="T3" HorizontalAlignment="Left" Margin="714,196,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
         <TextBox x:Name="Password" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="19" Margin="703,303,0,0" TextWrapping="Wrap" Text="Enter a password" VerticalAlignment="Top" Width="82" Visibility="Hidden" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="9" Foreground="#7F000000"/>
         <TextBox x:Name="Email" Text="Enter an email" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="19" Margin="703,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" Visibility="Hidden" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="9" Foreground="#7F000000"/>
     </Grid>

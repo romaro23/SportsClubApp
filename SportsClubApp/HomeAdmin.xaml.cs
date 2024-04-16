@@ -116,9 +116,8 @@ namespace SportsClubApp
             {
                 if (VerifyData(Email, Password))
                 { 
-                    //TODO (ADD A NEW LINE)
-                    StreamWriter writer = new StreamWriter("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Trainers.txt");
-                    writer.WriteLine(Email.Text + " " + Password.Text + " " + Name.Text + "\n");
+                    StreamWriter writer = new StreamWriter("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Trainers.txt", true);
+                    writer.WriteLine(Email.Text + " " + Password.Text + " " + Name.Text);
                     writer.Close();
                     if (!Trainer1.IsEnabled)
                     {
@@ -138,6 +137,7 @@ namespace SportsClubApp
                         T3.Content = Name.Text;
                         ThirdTrainer = new Tuple<string, bool>(Name.Text, true);
                     }
+                    HomeClient.InititalizeTrainers(FirstTrainer, SecondTrainer, ThirdTrainer);
                     Name.Text = "Enter a name";
                     Email.Text = "Enter an email";
                     Password.Text = "Enter a password";

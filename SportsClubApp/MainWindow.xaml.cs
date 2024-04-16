@@ -70,10 +70,10 @@ namespace SportsClubApp
             }
             return false;
         }
-        private Dictionary<string, string> ReadData(string path, ref string name)
+        private Dictionary<Tuple<string, string>, string> ReadTrainers(string path)
         {
             StreamReader reader = new StreamReader(path);
-            Dictionary<string, string> data = new Dictionary<string, string>();
+            Dictionary<Tuple<string, string>, string> data = new Dictionary<Tuple<string, string>, string>();
             while(!reader.EndOfStream)
             {
                 string line = reader.ReadLine();
@@ -82,26 +82,39 @@ namespace SportsClubApp
                     return data;
                 }
                 var words = line.Split(' ');
-                data.Add(words[0], words[1]);
-                if(words.Length > 2)
+                Tuple<string, string> pair = new Tuple<string, string>(words[0], words[1]);
+                data.Add(pair, words[2]);        
+            }
+            reader.Close();
+            return data;
+        }
+        private Dictionary<string, string> ReadClients(string path)
+        {
+            StreamReader reader = new StreamReader(path);
+            Dictionary<string, string> data = new Dictionary<string, string>();
+            while (!reader.EndOfStream)
+            {
+                string line = reader.ReadLine();
+                if (line == "")
                 {
-                    name = words[2];
-                }               
+                    return data;
+                }
+                var words = line.Split(' ');
+                data.Add(words[0], words[1]);
             }
             reader.Close();
             return data;
         }
         private void OpenHomeWindow(object sender, RoutedEventArgs e)
         {
-            
             if(VerifyData(EmailInput, PasswordInput)  )
             {
-                string trainerName = "";
-                Dictionary<string, string> trainers = ReadData("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Trainers.txt", ref trainerName);
-                Dictionary<string, string> clients = ReadData("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Clients.txt", ref trainerName);
-                if (trainers.TryGetValue(EmailInput.Text, out var foundTrainer) && foundTrainer == PasswordInput.Password)
+                Dictionary<Tuple<string, string>, string> trainers = ReadTrainers("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Trainers.txt");
+                Dictionary<string, string> clients = ReadClients("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Clients.txt");
+                Tuple<string, string> pair = new Tuple<string, string>(EmailInput.Text, PasswordInput.Password);
+                if (trainers.TryGetValue(pair, out var foundTrainer))
                 {                   
-                    HomeTrainer homeTrainer = new HomeTrainer(trainerName);
+                    HomeTrainer homeTrainer = new HomeTrainer(foundTrainer);
                     homeTrainer.Show();
                     Close();
                 }
