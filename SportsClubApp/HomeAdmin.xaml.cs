@@ -29,6 +29,7 @@ namespace SportsClubApp
         private static Tuple<string, bool> FirstTrainer = new Tuple<string, bool>("", false);
         private static Tuple<string, bool> SecondTrainer = new Tuple<string, bool>("", false);
         private static Tuple<string, bool> ThirdTrainer = new Tuple<string, bool>("", false);
+        
         public HomeAdmin()
         {
             InitializeComponent();
@@ -43,8 +44,7 @@ namespace SportsClubApp
             Email.GotFocus += EmailGotFocus;
             Email.LostFocus += EmailLostFocus;
             Password.GotFocus += PasswordGotFocus;
-            Password.LostFocus += PasswordLostFocus;
-            
+            Password.LostFocus += PasswordLostFocus;            
         }
 
         private void OpenChats(object sender, RoutedEventArgs e)
@@ -141,6 +141,7 @@ namespace SportsClubApp
                         ThirdTrainer = new Tuple<string, bool>(Name.Text, true);
                     }
                     HomeClient.InititalizeTrainers(FirstTrainer, SecondTrainer, ThirdTrainer);
+                    trainer.SetNames(T1.Content.ToString(), T2.Content.ToString(), T3.Content.ToString());
                     Name.Text = "Enter a name";
                     Email.Text = "Enter an email";
                     Password.Text = "Enter a password";
@@ -193,22 +194,35 @@ namespace SportsClubApp
                 ((TextBox)sender).Text = "Enter a password";
             }
         }
-        
-
         private void Trainer1_Click(object sender, RoutedEventArgs e)
         {
             Frame.Content = trainer;
-            trainer.TrainerName.Content = T1.Content;
+            trainer.TrainerName.Content = T1.Content; 
+            trainer.WorkingDays.SelectedDates.Clear();
+            foreach (var date in TrainerInfo.firstTrainer.Item1)
+            {
+                trainer.WorkingDays.SelectedDates.Add(date);
+            }
         }
         private void Trainer2_Click(object sender, RoutedEventArgs e)
         {
             Frame.Content = trainer;
             trainer.TrainerName.Content = T2.Content;
+            trainer.WorkingDays.SelectedDates.Clear();
+            foreach (var date in TrainerInfo.secondTrainer.Item1)
+            {
+                trainer.WorkingDays.SelectedDates.Add(date);
+            }
         }
         private void Trainer3_Click(object sender, RoutedEventArgs e)
         {
             Frame.Content = trainer;
             trainer.TrainerName.Content = T3.Content;
+            trainer.WorkingDays.SelectedDates.Clear();
+            foreach (var date in TrainerInfo.thirdTrainer.Item1)
+            {
+                trainer.WorkingDays.SelectedDates.Add(date);
+            }
         }
     }
 }

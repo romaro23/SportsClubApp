@@ -16,7 +16,7 @@
         <Button x:Name="Chats"
             Content="Chats" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="10,69,0,0" VerticalAlignment="Top" Width="110" BorderBrush="{x:Null}" Background="#FF32D5D5" FontFamily="Bahnschrift" FontSize="13" Foreground="Black" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Click="OpenChats"/>
         <Button x:Name="Profile"
-            Content="Profile" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="10,117,0,0" VerticalAlignment="Top" Width="110" BorderBrush="{x:Null}" Background="#FF32D5D5" FontFamily="Bahnschrift" FontSize="13" Foreground="Black" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold"/>
+            Content="Profile" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="10,117,0,0" VerticalAlignment="Top" Width="110" BorderBrush="{x:Null}" Background="#FF32D5D5" FontFamily="Bahnschrift" FontSize="13" Foreground="Black" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Click="Profile_Click"/>
         <Image Source="C:\Users\Romaro\Downloads\pngwing.com (2).png" Margin="17,70,857,400"/>
         <Image Source="C:\Users\Romaro\Downloads\pngwing.com (3).png" Margin="19,118,859,353" Width="22" Height="29"></Image>
 
