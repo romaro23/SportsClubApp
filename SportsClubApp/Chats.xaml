@@ -12,10 +12,8 @@
             <RowDefinition Height="14*"/>
             <RowDefinition Height="111*"/>
         </Grid.RowDefinitions>
-        <Rectangle HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="801" Grid.RowSpan="2">
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="C:\Users\Romaro\Downloads\gym2.jpg" />
-            </Rectangle.Fill>
+        <Rectangle HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="801" Grid.RowSpan="2" Fill="White">
+            
         </Rectangle>
         
     </Grid>

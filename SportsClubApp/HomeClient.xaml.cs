@@ -69,5 +69,25 @@ namespace SportsClubApp
             window.Show();
             this.Close();
         }
+        private void ActiveTrainer(string name)
+        {
+            Active.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF32D5D5"));
+            ActiveIMG.Visibility = Visibility.Visible;
+            ActiveNM.Content = name;
+        }
+        private void Trainer1_Click(object sender, RoutedEventArgs e)
+        {
+            ActiveTrainer(FirstTrainer.Item1);
+        }
+
+        private void Trainer2_Click(object sender, RoutedEventArgs e)
+        {
+            ActiveTrainer(SecondTrainer.Item1);
+        }
+
+        private void Trainer3_Click(object sender, RoutedEventArgs e)
+        {
+            ActiveTrainer(ThirdTrainer.Item1);
+        }
     }
 }

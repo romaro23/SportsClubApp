@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace SportsClubApp
     {
         private Chats chats = new Chats();
         private Home home = new Home();
+        private TrainerInfo trainer = new TrainerInfo();
         private static Tuple<string, bool> FirstTrainer = new Tuple<string, bool>("", false);
         private static Tuple<string, bool> SecondTrainer = new Tuple<string, bool>("", false);
         private static Tuple<string, bool> ThirdTrainer = new Tuple<string, bool>("", false);
@@ -42,6 +44,7 @@ namespace SportsClubApp
             Email.LostFocus += EmailLostFocus;
             Password.GotFocus += PasswordGotFocus;
             Password.LostFocus += PasswordLostFocus;
+            
         }
 
         private void OpenChats(object sender, RoutedEventArgs e)
@@ -189,6 +192,23 @@ namespace SportsClubApp
             {
                 ((TextBox)sender).Text = "Enter a password";
             }
+        }
+        
+
+        private void Trainer1_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Content = trainer;
+            trainer.TrainerName.Content = T1.Content;
+        }
+        private void Trainer2_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Content = trainer;
+            trainer.TrainerName.Content = T2.Content;
+        }
+        private void Trainer3_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Content = trainer;
+            trainer.TrainerName.Content = T3.Content;
         }
     }
 }

@@ -55,10 +55,8 @@
     </Window.Resources>
     <Grid Width="903" Height="500" Background="#FFD9D9D9">
         <Image HorizontalAlignment="Left" Height="50" Margin="40,360,0,0" VerticalAlignment="Top" Width="50" Source="/pngwing.com (7).png" RenderTransformOrigin="0.232,0.177"/>
-        <Rectangle HorizontalAlignment="Left" Height="500" Margin="129,0,0,0" VerticalAlignment="Center" Width="562">
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="C:\Users\Romaro\Downloads\gym1.jpg" />
-            </Rectangle.Fill>
+        <Rectangle HorizontalAlignment="Left" Height="500" Margin="129,0,0,0" VerticalAlignment="Center" Width="562" Fill="White">
+
         </Rectangle>
         <Button x:Name="Home"
              Content="Home" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="10,22,0,0" VerticalAlignment="Top" Width="110" BorderBrush="{x:Null}" Background="#FF32D5D5" FontFamily="Bahnschrift" FontSize="13" Foreground="Black" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Click="Home_Click"/>
@@ -79,22 +77,23 @@
         <Button Style="{DynamicResource Out}" Content="Button" HorizontalAlignment="Left" Height="50" Margin="40,360,0,0" VerticalAlignment="Top" Width="50" Background="#00DDDDDD" Foreground="#00000000" BorderBrush="#00707070" Click="Out"/>
 
         <Frame x:Name="Frame" NavigationUIVisibility="Hidden" Margin="129,0,212,65"/>
-        <Button x:Name="Trainer1" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="698,120,0,0" VerticalAlignment="Top" Width="82" FontFamily="Bahnschrift" FontSize="13" Foreground="#FF32D5D5" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Background="#FF32D5D5" IsEnabled="False">
+        <Button x:Name="Trainer1" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="698,120,0,0" VerticalAlignment="Top" Width="82" FontFamily="Bahnschrift" FontSize="13" Foreground="#FF32D5D5" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Background="#FF32D5D5" IsEnabled="False" Click="Trainer1_Click">
             <Image Source="C:\Users\Romaro\Downloads\pngwing.com (3).png" Width="20" Height="21" Margin="0,0,57,0"/>
         </Button>
         <Label x:Name="Occupation_Copy1" Content="Our trainers" HorizontalAlignment="Left" Margin="707,98,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
-        <Button x:Name="Trainer2" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="698,156,0,0" VerticalAlignment="Top" Width="82" FontFamily="Bahnschrift" FontSize="13" Foreground="#FF32D5D5" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Background="#FF32D5D5" IsEnabled="False">
+        <Button x:Name="Trainer2" Click="Trainer2_Click" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="698,156,0,0" VerticalAlignment="Top" Width="82" FontFamily="Bahnschrift" FontSize="13" Foreground="#FF32D5D5" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Background="#FF32D5D5" IsEnabled="False">
             <Image Source="C:\Users\Romaro\Downloads\pngwing.com (3).png" Width="20" Height="21" Margin="0,0,57,0"/>
         </Button>
-        <Button x:Name="Trainer3" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="698,192,0,0" VerticalAlignment="Top" Width="82" FontFamily="Bahnschrift" FontSize="13" Foreground="#FF32D5D5" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Background="#FF32D5D5" IsEnabled="False">
+        <Button x:Name="Trainer3" Click="Trainer3_Click" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="698,192,0,0" VerticalAlignment="Top" Width="82" FontFamily="Bahnschrift" FontSize="13" Foreground="#FF32D5D5" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Background="#FF32D5D5" IsEnabled="False">
             <Image Source="C:\Users\Romaro\Downloads\pngwing.com (3).png" Width="20" Height="21" Margin="0,0,57,0" />
         </Button>
         <Button Content="Add a trainer" Style="{DynamicResource ButtonStyle1}" HorizontalAlignment="Left" Height="22" Margin="698,228,0,0" VerticalAlignment="Top" Width="82" Background="#FF32D5D5" FontFamily="Bahnschrift" FontWeight="Bold" Click="Button_Click"/>
         <TextBox Style="{DynamicResource InputBox}" Name="Name" Text="Enter a name" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="19" Margin="703,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" Visibility="Hidden" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="9" Foreground="#7F000000"/>
-        <Label x:Name="T1" HorizontalAlignment="Left" Margin="714,126,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
-        <Label x:Name="T2" HorizontalAlignment="Left" Margin="714,160,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
-        <Label x:Name="T3" HorizontalAlignment="Left" Margin="714,196,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
+        <Label x:Name="T1" HorizontalAlignment="Left" Margin="718,124,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
+        <Label x:Name="T2" HorizontalAlignment="Left" Margin="718,160,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
+        <Label x:Name="T3" HorizontalAlignment="Left" Margin="718,196,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
         <TextBox x:Name="Password" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="19" Margin="703,303,0,0" TextWrapping="Wrap" Text="Enter a password" VerticalAlignment="Top" Width="82" Visibility="Hidden" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="9" Foreground="#7F000000"/>
         <TextBox x:Name="Email" Text="Enter an email" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="19" Margin="703,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" Visibility="Hidden" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="9" Foreground="#7F000000"/>
+        <Label Name="TrainerName" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold" Margin="369,90,0,0"/>
     </Grid>
 </Window>

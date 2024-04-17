@@ -7,10 +7,8 @@
         mc:Ignorable="d"
         Title="HomeTrainer" Height="450" Width="800" WindowStyle="ToolWindow" ResizeMode="NoResize">
     <Grid Width="903" Height="500" Background="#FFD9D9D9">
-        <Rectangle HorizontalAlignment="Left" Height="500" Margin="129,0,0,0" VerticalAlignment="Center" Width="562" >
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="C:\Users\Romaro\Downloads\gym1.jpg" />
-            </Rectangle.Fill>
+        <Rectangle HorizontalAlignment="Left" Height="500" Margin="129,0,0,0" VerticalAlignment="Center" Width="562" Fill="White">
+            
         </Rectangle>
         <Button x:Name="Home" Click="Home_Click"
              Content="Home" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="10,22,0,0" VerticalAlignment="Top" Width="110" BorderBrush="{x:Null}" Background="#FF32D5D5" FontFamily="Bahnschrift" FontSize="13" Foreground="Black" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold"/>

@@ -8,10 +8,8 @@
         Title="HomeAdmin" Height="450" Width="800">
 
     <Grid Width="903" Height="500" Background="#FFD9D9D9">
-        <Rectangle HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="803" RenderTransformOrigin="0.5,0.5" Margin="-1,-8,0,0">
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="C:\Users\Romaro\Downloads\gym1.jpg" />
-            </Rectangle.Fill>
+        <Rectangle HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="803" RenderTransformOrigin="0.5,0.5" Margin="-1,-8,0,0" Fill="White">
+            
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
