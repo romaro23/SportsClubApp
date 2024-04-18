@@ -23,7 +23,7 @@ namespace SportsClubApp
     /// 
     public partial class HomeAdmin : Window
     {
-        private Chats chats = new Chats();
+        private Chats chats;
         private Home home = new Home();
         private TrainerInfo trainer = new TrainerInfo();
         private static Tuple<string, bool> FirstTrainer = new Tuple<string, bool>("", false);
@@ -49,7 +49,9 @@ namespace SportsClubApp
 
         private void OpenChats(object sender, RoutedEventArgs e)
         {
+            chats = new Chats();
             Frame.Content = chats;
+            
         }
         private void Home_Click(object sender, RoutedEventArgs e)
         {

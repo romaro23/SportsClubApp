@@ -4,17 +4,62 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SportsClubApp"
+        xmlns:models="clr-namespace:SportsClubApp"
+        xmlns:vm="clr-namespace:SportsClubApp"
         mc:Ignorable="d"
-        Title="Chats" Height="450" Width="800">
-    <Grid Width="903" Height="500" Background="#FFD9D9D9">
-        
+        Title="Chats" Height="450" Width="558">
+    <Page.Resources>
+        <DataTemplate DataType="{x:Type models:CustomMessage}">
+            <Grid HorizontalAlignment="Right" Margin="2">
+                <Rectangle Fill="YellowGreen" />
+                <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="2"
+                        SnapsToDevicePixels="True">
+                    <TextBlock Text="{Binding Text}"
+                               Margin="5"/>
+                </Border>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type models:MyMessage}">
+            <Grid HorizontalAlignment="Left" Margin="2">
+                <Rectangle Fill="#FF32D5D5" RadiusX="10" RadiusY="10"/>
+                <Border BorderBrush="#FF32D5D5" BorderThickness="0"
+                        SnapsToDevicePixels="True">
+                    <TextBlock FontFamily="Bahnschrift" Text="{Binding Text}"
+                               Margin="5"/>
+                </Border>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="14*"/>
             <RowDefinition Height="111*"/>
         </Grid.RowDefinitions>
-        <Rectangle HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="801" Grid.RowSpan="2" Fill="White">
-            
+        <Rectangle  HorizontalAlignment="Center" Height="448" VerticalAlignment="Top" Width="556" Grid.RowSpan="2" Fill="White" Margin="0,2,0,0" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.246"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="1.196"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
         </Rectangle>
-        
+        <ListBox ItemContainerStyle="{StaticResource ListBoxItemStyle1}" Style="{DynamicResource ListBoxStyle1}" ScrollViewer.VerticalScrollBarVisibility="Hidden" Name="ListBox" Margin="200,25,200,103" Grid.RowSpan="2">
+        </ListBox>
+        <TextBox HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{DynamicResource SendBox}" Name="SendBox" Width="120" RenderTransformOrigin="0.318,1.372" Margin="200,302,238,72" Grid.Row="1" FontWeight="Bold" FontFamily="Bahnschrift" />
+        <Button Click="Button_Click" RenderTransformOrigin="0.5,0.5" Margin="325,302,200,72" Grid.Row="1" Style="{DynamicResource SendButton}">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Image Source="C:\Users\Romaro\Downloads\pngwing.com (8).png"></Image>
+        </Button>
     </Grid>
 </Page>

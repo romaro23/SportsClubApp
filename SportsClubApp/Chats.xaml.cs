@@ -19,11 +19,43 @@ namespace SportsClubApp
     /// <summary>
     /// Interaction logic for Chats.xaml
     /// </summary>
+    /// 
     public partial class Chats : Page
     {
+        public static List<MessageBase> Messages = new List<MessageBase>();
         public Chats()
         {
-            InitializeComponent();       
+            InitializeComponent();
+            ListBox.ItemsSource = Messages;
+            
         }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {           
+            Messages.Add(new MyMessage(SendBox.Text));
+            ListBox.Items.Refresh();
+            ListBox.Items.MoveCurrentToLast();
+            ListBox.ScrollIntoView(ListBox.Items.CurrentItem);
+        }
+    }
+    public abstract class MessageBase
+    {
+        protected MessageBase(string text)
+        {
+            Text = text;
+        }
+
+        public virtual string Text { get; protected set; }
+    }
+
+    public class MyMessage : MessageBase
+    {
+        public MyMessage(string text)
+            : base(text) { }
+    }
+
+    public class CustomMessage : MessageBase
+    {
+        public CustomMessage(string text)
+            : base(text) { }
     }
 }
