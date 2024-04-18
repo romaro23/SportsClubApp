@@ -198,33 +198,60 @@ namespace SportsClubApp
         }
         private void Trainer1_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Content = trainer;
-            trainer.TrainerName.Content = T1.Content; 
-            trainer.WorkingDays.SelectedDates.Clear();
-            foreach (var date in TrainerInfo.firstTrainer.Item1)
+            if(Frame.Content == chats && chats != null)
             {
-                trainer.WorkingDays.SelectedDates.Add(date);
+                chats.InitializeChat(1);
+                chats.Name.Content = T1.Content;
             }
+            else
+            {
+                Frame.Content = trainer;
+                trainer.TrainerName.Content = T1.Content;
+                trainer.WorkingDays.SelectedDates.Clear();
+                foreach (var date in TrainerInfo.firstTrainer.Item1)
+                {
+                    trainer.WorkingDays.SelectedDates.Add(date);
+                }
+            }
+            
         }
         private void Trainer2_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Content = trainer;
-            trainer.TrainerName.Content = T2.Content;
-            trainer.WorkingDays.SelectedDates.Clear();
-            foreach (var date in TrainerInfo.secondTrainer.Item1)
+            if (Frame.Content == chats && chats != null)
             {
-                trainer.WorkingDays.SelectedDates.Add(date);
+                chats.InitializeChat(2);
+                chats.Name.Content = T2.Content;
             }
+            else
+            {
+                Frame.Content = trainer;
+                trainer.TrainerName.Content = T2.Content;
+                trainer.WorkingDays.SelectedDates.Clear();
+                foreach (var date in TrainerInfo.secondTrainer.Item1)
+                {
+                    trainer.WorkingDays.SelectedDates.Add(date);
+                }
+            }
+            
         }
         private void Trainer3_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Content = trainer;
-            trainer.TrainerName.Content = T3.Content;
-            trainer.WorkingDays.SelectedDates.Clear();
-            foreach (var date in TrainerInfo.thirdTrainer.Item1)
+            if (Frame.Content == chats && chats != null)
             {
-                trainer.WorkingDays.SelectedDates.Add(date);
+                chats.InitializeChat(3);
+                chats.Name.Content = T3.Content;
             }
+            else
+            {
+                Frame.Content = trainer;
+                trainer.TrainerName.Content = T3.Content;
+                trainer.WorkingDays.SelectedDates.Clear();
+                foreach (var date in TrainerInfo.thirdTrainer.Item1)
+                {
+                    trainer.WorkingDays.SelectedDates.Add(date);
+                }
+            }
+            
         }
     }
 }

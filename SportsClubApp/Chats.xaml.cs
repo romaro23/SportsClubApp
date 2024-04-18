@@ -22,16 +22,42 @@ namespace SportsClubApp
     /// 
     public partial class Chats : Page
     {
-        public static List<MessageBase> Messages = new List<MessageBase>();
+        public static List<MessageBase> firstTrainer = new List<MessageBase>();
+        public static List<MessageBase> secondTrainer = new List<MessageBase>();
+        public static List<MessageBase> thirdTrainer = new List<MessageBase>();
         public Chats()
         {
             InitializeComponent();
-            ListBox.ItemsSource = Messages;
-            
+        }
+        public void InitializeChat(int trainer)
+        {
+            switch(trainer)
+            {
+                case 1:
+                    ListBox.ItemsSource = firstTrainer;
+                    break;
+                case 2:
+                    ListBox.ItemsSource = secondTrainer;
+                    break;
+                case 3:
+                    ListBox.ItemsSource = thirdTrainer;
+                    break;
+            }
         }
         private void Button_Click(object sender, RoutedEventArgs e)
-        {           
-            Messages.Add(new MyMessage(SendBox.Text));
+        {
+            if(ListBox.ItemsSource == firstTrainer)
+            {
+                firstTrainer.Add(new MyMessage(SendBox.Text));
+            }
+            else if(ListBox.ItemsSource == secondTrainer)
+            {
+                secondTrainer.Add(new MyMessage(SendBox.Text));
+            }
+            else if(ListBox.ItemsSource == thirdTrainer) 
+            {
+                thirdTrainer.Add(new MyMessage(SendBox.Text));
+            }
             ListBox.Items.Refresh();
             ListBox.Items.MoveCurrentToLast();
             ListBox.ScrollIntoView(ListBox.Items.CurrentItem);

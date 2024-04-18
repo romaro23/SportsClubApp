@@ -10,18 +10,18 @@
         Title="Chats" Height="450" Width="558">
     <Page.Resources>
         <DataTemplate DataType="{x:Type models:CustomMessage}">
-            <Grid HorizontalAlignment="Right" Margin="2">
-                <Rectangle Fill="YellowGreen" />
-                <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="2"
-                        SnapsToDevicePixels="True">
-                    <TextBlock Text="{Binding Text}"
-                               Margin="5"/>
+            <Grid HorizontalAlignment="Left" Margin="2">
+                <Rectangle Fill="#FF32D5D5" RadiusX="10" RadiusY="10"/>
+                <Border BorderBrush="#FF32D5D5" BorderThickness="0"
+        SnapsToDevicePixels="True">
+                    <TextBlock FontFamily="Bahnschrift" Text="{Binding Text}"
+               Margin="5"/>
                 </Border>
             </Grid>
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type models:MyMessage}">
-            <Grid HorizontalAlignment="Left" Margin="2">
+            <Grid HorizontalAlignment="Right" Margin="2">
                 <Rectangle Fill="#FF32D5D5" RadiusX="10" RadiusY="10"/>
                 <Border BorderBrush="#FF32D5D5" BorderThickness="0"
                         SnapsToDevicePixels="True">
@@ -33,33 +33,17 @@
     </Page.Resources>
 
     <Grid >
-        <Grid.RowDefinitions>
-            <RowDefinition Height="14*"/>
-            <RowDefinition Height="111*"/>
-        </Grid.RowDefinitions>
-        <Rectangle  HorizontalAlignment="Center" Height="448" VerticalAlignment="Top" Width="556" Grid.RowSpan="2" Fill="White" Margin="0,2,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="0.246"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="1.196"/>
-                </TransformGroup>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <ListBox ItemContainerStyle="{StaticResource ListBoxItemStyle1}" Style="{DynamicResource ListBoxStyle1}" ScrollViewer.VerticalScrollBarVisibility="Hidden" Name="ListBox" Margin="200,25,200,103" Grid.RowSpan="2">
-        </ListBox>
-        <TextBox HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{DynamicResource SendBox}" Name="SendBox" Width="120" RenderTransformOrigin="0.318,1.372" Margin="200,302,238,72" Grid.Row="1" FontWeight="Bold" FontFamily="Bahnschrift" />
-        <Button Click="Button_Click" RenderTransformOrigin="0.5,0.5" Margin="325,302,200,72" Grid.Row="1" Style="{DynamicResource SendButton}">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-            <Image Source="C:\Users\Romaro\Downloads\pngwing.com (8).png"></Image>
+        <Rectangle  HorizontalAlignment="Left" Height="448" VerticalAlignment="Top" Width="556" Fill="White" RenderTransformOrigin="0.5,0.5" Margin="-1,-18,0,0"/>
+        <ListBox ItemContainerStyle="{StaticResource ListBoxItemStyle1}" Style="{DynamicResource ListBoxStyle1}" ScrollViewer.VerticalScrollBarVisibility="Hidden" x:Name="ListBox" Margin="120,90,124,91"/>
+        <TextBox HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{DynamicResource SendBox}" x:Name="SendBox" RenderTransformOrigin="0.318,1.372" Margin="119,364,153,64" FontWeight="Bold" FontFamily="Bahnschrift" />
+        <Button Click="Button_Click" RenderTransformOrigin="0.5,0.5" Margin="405,364,124,64" Style="{DynamicResource SendButton}">
+            <Image Source="C:\Users\Romaro\Downloads\pngwing.com (8).png"/>
         </Button>
+        <Label x:Name="Name" Margin="246,45,0,373" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Width="122"/>
+        <Rectangle Margin="108,26,112,55" Stroke="#FF32D5D5" RadiusX="20" RadiusY="20" StrokeThickness="5" Fill="#1932D5D5" IsHitTestVisible="False" />
+        <Ellipse HorizontalAlignment="Left" Height="50" Margin="191,35,0,0" VerticalAlignment="Top" Width="50" Fill="#FF32D5D5"/>
+        <Image Source="C:\Users\Romaro\Downloads\pngwing.com (3).png" Margin="205,46,331,375" Width="22" Height="29"/>
+
+        <Rectangle HorizontalAlignment="Left" Height="100" Margin="707,302,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Page>
