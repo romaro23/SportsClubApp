@@ -22,7 +22,7 @@
         <Ellipse HorizontalAlignment="Left" Height="50" Margin="714,11,0,0" VerticalAlignment="Top" Width="50" Fill="#FF32D5D5"/>
         <Grid Margin="701,64,126,402">
             <Rectangle HorizontalAlignment="Center" RadiusX ="7" RadiusY="7"  Height="34" VerticalAlignment="Center" Width="76" Fill="#FF32D5D5"/>
-            <Label Name="Name" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold"/>
+            <Label Name="YourName" Content="Roman" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold"/>
             <Label Name="Occupation" Content="Client" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10" RenderTransformOrigin="0.764,0.887" Margin="0,12,0,0"/>
         </Grid>
         <Image Source="C:\Users\Romaro\Downloads\pngwing.com (3).png" Margin="728,22,153,449" Width="22" Height="29"/>
@@ -35,6 +35,8 @@
             <Rectangle Name="Active" Height="31" Width="82" Stroke="#FF32D5D5" VerticalAlignment="Top" RadiusX="10" RadiusY="10" Fill="#1932D5D5"/>
             <Image Name="ActiveIMG" Source="C:\Users\Romaro\Downloads\pngwing.com (3).png" Width="20" Height="21" Margin="0,0,57,0" Visibility="Hidden"/>
             <Label x:Name="ActiveNM" HorizontalAlignment="Center"  VerticalAlignment="Center" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10" RenderTransformOrigin="0.559,0.503"/>
+            <Button x:Name="YourTrainer" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31"  VerticalAlignment="Top" Width="82" FontFamily="Bahnschrift" FontSize="13"  Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Background="Transparent" IsEnabled="False" Click="YourTrainer_Click">
+            </Button>
         </Grid>
         <Label x:Name="Occupation_Copy" Content="Your trainer" HorizontalAlignment="Left" Margin="707,98,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
         <Button x:Name="Trainer1" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="698,181,0,0" VerticalAlignment="Top" Width="82" FontFamily="Bahnschrift" FontSize="13" Foreground="#FF32D5D5" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Background="#FF32D5D5" IsEnabled="False" Click="Trainer1_Click">

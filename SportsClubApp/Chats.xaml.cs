@@ -22,41 +22,42 @@ namespace SportsClubApp
     /// 
     public partial class Chats : Page
     {
-        public static List<MessageBase> firstTrainer = new List<MessageBase>();
-        public static List<MessageBase> secondTrainer = new List<MessageBase>();
-        public static List<MessageBase> thirdTrainer = new List<MessageBase>();
+        public static Dictionary<string, List<MessageBase>> trainers = new Dictionary<string, List<MessageBase>>();
         public Chats()
         {
             InitializeComponent();
+            SendBox.IsHitTestVisible = false;
+            Send.IsHitTestVisible=false;
+            
         }
-        public void InitializeChat(int trainer)
+        public void InitializeChat(string name)
         {
-            switch(trainer)
+            SendBox.IsHitTestVisible = true;
+            Send.IsHitTestVisible = true;
+            if(!trainers.ContainsKey(name))
             {
-                case 1:
-                    ListBox.ItemsSource = firstTrainer;
-                    break;
-                case 2:
-                    ListBox.ItemsSource = secondTrainer;
-                    break;
-                case 3:
-                    ListBox.ItemsSource = thirdTrainer;
-                    break;
-            }
+                trainers[name] = new List<MessageBase>();
+            }           
+            ListBox.ItemsSource = trainers[name];
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(ListBox.ItemsSource == firstTrainer)
+            string chatName;
+            if(Name.Content == null || Name.Content.ToString() == "Administrator")
             {
-                firstTrainer.Add(new MyMessage(SendBox.Text));
+                chatName = HomeTrainer.name_;
+            } 
+            else
+            {
+                chatName = Name.Content.ToString();
             }
-            else if(ListBox.ItemsSource == secondTrainer)
+            if (trainers.ContainsKey(chatName))                
             {
-                secondTrainer.Add(new MyMessage(SendBox.Text));
-            }
-            else if(ListBox.ItemsSource == thirdTrainer) 
-            {
-                thirdTrainer.Add(new MyMessage(SendBox.Text));
+                if(SendBox.Text != "")
+                {
+                    trainers[chatName].Add(new MyMessage(SendBox.Text));
+                }               
+
             }
             ListBox.Items.Refresh();
             ListBox.Items.MoveCurrentToLast();

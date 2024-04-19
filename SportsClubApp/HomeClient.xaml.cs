@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace SportsClubApp
 {
@@ -22,12 +23,17 @@ namespace SportsClubApp
     {
         private Chats chats = new Chats();
         private Home home = new Home();
+        private static SolidColorBrush activeFill;
+        private static System.Windows.Visibility activeIMGVisibility = Visibility.Hidden;
+        private static string activeNMContent;
+        private static bool isEnabled;
         private static Tuple<string, bool> FirstTrainer = new Tuple<string, bool>("", false);
         private static Tuple<string, bool> SecondTrainer = new Tuple<string, bool>("", false);
         private static Tuple<string, bool> ThirdTrainer = new Tuple<string, bool>("", false);
         public HomeClient()
         {
             InitializeComponent();
+            ActiveTrainer();
             T1.Content = FirstTrainer.Item1;
             Trainer1.IsEnabled = FirstTrainer.Item2;
             T2.Content = SecondTrainer.Item1;
@@ -69,25 +75,76 @@ namespace SportsClubApp
             window.Show();
             this.Close();
         }
-        private void ActiveTrainer(string name)
+        private static void SetTrainerProperties(string name)
         {
-            Active.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF32D5D5"));
-            ActiveIMG.Visibility = Visibility.Visible;
-            ActiveNM.Content = name;
+            activeFill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF32D5D5"));
+            activeIMGVisibility = Visibility.Visible;
+            activeNMContent = name;
+            isEnabled = true;
+        }
+        private void ActiveTrainer(string trainerName = "")
+        {
+            Active.Fill = activeFill;
+            ActiveIMG.Visibility = activeIMGVisibility;
+            ActiveNM.Content = activeNMContent;
+            YourTrainer.IsEnabled = isEnabled;
+            if(isEnabled)
+            {
+                HomeTrainer.SetMentee(YourName.Content.ToString(), trainerName);
+            }           
+        }
+        private bool IsTrainerEnabled()
+        {
+            if (YourTrainer.IsEnabled)
+            {
+                string messageBoxText = "You already have a trainer. Click the button again to remove.";
+                string caption = "";
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                MessageBoxResult result;
+                result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
+                return true;
+            }
+            return false;
         }
         private void Trainer1_Click(object sender, RoutedEventArgs e)
         {
-            ActiveTrainer(FirstTrainer.Item1);
+            if(IsTrainerEnabled()) 
+            {
+                return;
+            }
+            SetTrainerProperties(FirstTrainer.Item1);
+            ActiveTrainer(T1.Content.ToString());
         }
 
         private void Trainer2_Click(object sender, RoutedEventArgs e)
         {
-            ActiveTrainer(SecondTrainer.Item1);
+            if (IsTrainerEnabled())
+            {
+                return;
+            }
+            SetTrainerProperties(SecondTrainer.Item1);
+            ActiveTrainer(T2.Content.ToString());
         }
 
         private void Trainer3_Click(object sender, RoutedEventArgs e)
         {
-            ActiveTrainer(ThirdTrainer.Item1);
+            if (IsTrainerEnabled())
+            {
+                return;
+            }
+            SetTrainerProperties(ThirdTrainer.Item1);
+            ActiveTrainer(T3.Content.ToString());
+        }
+
+        private void YourTrainer_Click(object sender, RoutedEventArgs e)
+        {
+            HomeTrainer.UnSetMentee(ActiveNM.Content.ToString());
+            activeFill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#1932D5D5"));
+            activeIMGVisibility = Visibility.Hidden;
+            activeNMContent = "";
+            isEnabled = false;
+            ActiveTrainer();
         }
     }
 }

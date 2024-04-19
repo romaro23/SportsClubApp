@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace SportsClubApp
 {
@@ -196,12 +198,27 @@ namespace SportsClubApp
                 ((TextBox)sender).Text = "Enter a password";
             }
         }
+        private void MirrorMessages(string name_)
+        {
+            for (int i = 0; i < Chats.trainers[name_].Count; i++)
+            {
+                if (Chats.trainers[name_][i] is MyMessage)
+                {
+                    Chats.trainers[name_][i] = new CustomMessage(Chats.trainers[name_][i].Text);
+                }
+                else if (Chats.trainers[name_][i] is CustomMessage)
+                {
+                    Chats.trainers[name_][i] = new MyMessage(Chats.trainers[name_][i].Text);
+                }
+            }
+        }
         private void Trainer1_Click(object sender, RoutedEventArgs e)
         {
             if(Frame.Content == chats && chats != null)
             {
-                chats.InitializeChat(1);
+                chats.InitializeChat(T1.Content.ToString());
                 chats.Name.Content = T1.Content;
+                MirrorMessages(T1.Content.ToString());
             }
             else
             {
@@ -219,8 +236,9 @@ namespace SportsClubApp
         {
             if (Frame.Content == chats && chats != null)
             {
-                chats.InitializeChat(2);
+                chats.InitializeChat(T2.Content.ToString());
                 chats.Name.Content = T2.Content;
+                MirrorMessages(T2.Content.ToString());
             }
             else
             {
@@ -238,8 +256,9 @@ namespace SportsClubApp
         {
             if (Frame.Content == chats && chats != null)
             {
-                chats.InitializeChat(3);
+                chats.InitializeChat(T3.Content.ToString());
                 chats.Name.Content = T3.Content;
+                MirrorMessages(T3.Content.ToString());
             }
             else
             {

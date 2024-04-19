@@ -88,12 +88,13 @@
             <Image Source="C:\Users\Romaro\Downloads\pngwing.com (3).png" Width="20" Height="21" Margin="0,0,57,0" />
         </Button>
         <Button Content="Add a trainer" Style="{DynamicResource ButtonStyle1}" HorizontalAlignment="Left" Height="22" Margin="698,228,0,0" VerticalAlignment="Top" Width="82" Background="#FF32D5D5" FontFamily="Bahnschrift" FontWeight="Bold" Click="Button_Click"/>
-        <TextBox Style="{DynamicResource InputBox}" Name="Name" Text="Enter a name" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="19" Margin="703,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" Visibility="Hidden" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="9" Foreground="#7F000000"/>
+        
         <Label x:Name="T1" HorizontalAlignment="Left" Margin="718,124,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
         <Label x:Name="T2" HorizontalAlignment="Left" Margin="718,160,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
         <Label x:Name="T3" HorizontalAlignment="Left" Margin="718,196,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10"/>
-        <TextBox x:Name="Password" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="19" Margin="703,303,0,0" TextWrapping="Wrap" Text="Enter a password" VerticalAlignment="Top" Width="82" Visibility="Hidden" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="9" Foreground="#7F000000"/>
-        <TextBox x:Name="Email" Text="Enter an email" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="19" Margin="703,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" Visibility="Hidden" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="9" Foreground="#7F000000"/>
+        <TextBox Style="{DynamicResource SendBox}" Name="Name" Text="Enter a name" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="19" Margin="698,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" Visibility="Hidden" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="9" Foreground="#7F000000"/>
+        <TextBox Style="{DynamicResource SendBox}" x:Name="Password" TextAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Height="19" Margin="698,303,0,0" TextWrapping="Wrap" Text="Enter a password" VerticalAlignment="Top" Width="82" Visibility="Hidden" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="9" Foreground="#7F000000"/>
+        <TextBox Style="{DynamicResource SendBox}" x:Name="Email" Text="Enter an email" TextAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Height="19" Margin="698,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" Visibility="Hidden" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="9" Foreground="#7F000000"/>
         <Label Name="TrainerName" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold" Margin="369,90,0,0"/>
     </Grid>
 </Window>

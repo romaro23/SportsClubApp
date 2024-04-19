@@ -36,10 +36,10 @@
         <Rectangle  HorizontalAlignment="Left" Height="448" VerticalAlignment="Top" Width="556" Fill="White" RenderTransformOrigin="0.5,0.5" Margin="-1,-18,0,0"/>
         <ListBox ItemContainerStyle="{StaticResource ListBoxItemStyle1}" Style="{DynamicResource ListBoxStyle1}" ScrollViewer.VerticalScrollBarVisibility="Hidden" x:Name="ListBox" Margin="120,90,124,91"/>
         <TextBox HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{DynamicResource SendBox}" x:Name="SendBox" RenderTransformOrigin="0.318,1.372" Margin="119,364,153,64" FontWeight="Bold" FontFamily="Bahnschrift" />
-        <Button Click="Button_Click" RenderTransformOrigin="0.5,0.5" Margin="405,364,124,64" Style="{DynamicResource SendButton}">
+        <Button Name="Send" Click="Button_Click" RenderTransformOrigin="0.5,0.5" Margin="405,364,124,64" Style="{DynamicResource SendButton}">
             <Image Source="C:\Users\Romaro\Downloads\pngwing.com (8).png"/>
         </Button>
-        <Label x:Name="Name" Margin="246,45,0,373" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Width="122"/>
+        <Label x:Name="Name" Margin="246,45,0,373" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Width="188"/>
         <Rectangle Margin="108,26,112,55" Stroke="#FF32D5D5" RadiusX="20" RadiusY="20" StrokeThickness="5" Fill="#1932D5D5" IsHitTestVisible="False" />
         <Ellipse HorizontalAlignment="Left" Height="50" Margin="191,35,0,0" VerticalAlignment="Top" Width="50" Fill="#FF32D5D5"/>
         <Image Source="C:\Users\Romaro\Downloads\pngwing.com (3).png" Margin="205,46,331,375" Width="22" Height="29"/>
