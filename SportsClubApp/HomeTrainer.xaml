@@ -37,7 +37,7 @@
             <Rectangle Name="Active" Height="31" Width="82" Stroke="#FF32D5D5" VerticalAlignment="Top" RadiusX="10" RadiusY="10" Fill="#1932D5D5"/>
             <Image Name="ActiveIMG" Source="C:\Users\Romaro\Downloads\pngwing.com (3).png" Width="20" Height="21" Margin="0,0,57,0" Visibility="Hidden"/>
             <Label x:Name="ActiveNM" HorizontalAlignment="Center"  VerticalAlignment="Center" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10" RenderTransformOrigin="0.559,0.503"/>
-            <Button x:Name="YourTrainer" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31"  VerticalAlignment="Top" Width="82" FontFamily="Bahnschrift" FontSize="13"  Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Background="Transparent" IsEnabled="False">
+            <Button x:Name="YourMentee" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31"  VerticalAlignment="Top" Width="82" FontFamily="Bahnschrift" FontSize="13"  Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Background="Transparent" IsEnabled="False" Click="YourMentee_Click">
             </Button>
         </Grid>
         <Label x:Name="Occupation_Copy" Content="Your mentee" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10" RenderTransformOrigin="0.764,0.887" Margin="706,110,0,0"/>

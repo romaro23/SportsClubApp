@@ -46,9 +46,13 @@ namespace SportsClubApp
             Email.GotFocus += EmailGotFocus;
             Email.LostFocus += EmailLostFocus;
             Password.GotFocus += PasswordGotFocus;
-            Password.LostFocus += PasswordLostFocus;            
+            Password.LostFocus += PasswordLostFocus;
         }
-
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            PreviousWindow.previousWindow = GetType();
+        }
         private void OpenChats(object sender, RoutedEventArgs e)
         {
             chats = new Chats();
@@ -200,6 +204,10 @@ namespace SportsClubApp
         }
         private void MirrorMessages(string name_)
         {
+            if(PreviousWindow.previousWindow == GetType())
+            {
+                return;
+            }
             for (int i = 0; i < Chats.trainers[name_].Count; i++)
             {
                 if (Chats.trainers[name_][i] is MyMessage)
@@ -216,9 +224,11 @@ namespace SportsClubApp
         {
             if(Frame.Content == chats && chats != null)
             {
-                chats.InitializeChat(T1.Content.ToString());
+                string chat = T1.Content.ToString()+"With"+"Admin";
                 chats.Name.Content = T1.Content;
-                MirrorMessages(T1.Content.ToString());
+                chats.InitializeChat(chat);                
+                MirrorMessages(chat);
+                Chats.currentName = chat;
             }
             else
             {
@@ -236,9 +246,11 @@ namespace SportsClubApp
         {
             if (Frame.Content == chats && chats != null)
             {
-                chats.InitializeChat(T2.Content.ToString());
+                string chat = T2.Content.ToString() + "With" + "Admin";
                 chats.Name.Content = T2.Content;
-                MirrorMessages(T2.Content.ToString());
+                chats.InitializeChat(chat);               
+                MirrorMessages(chat);
+                Chats.currentName = chat;
             }
             else
             {
@@ -256,9 +268,11 @@ namespace SportsClubApp
         {
             if (Frame.Content == chats && chats != null)
             {
-                chats.InitializeChat(T3.Content.ToString());
+                string chat = T3.Content.ToString() + "With" + "Admin";
                 chats.Name.Content = T3.Content;
-                MirrorMessages(T3.Content.ToString());
+                chats.InitializeChat(chat);               
+                MirrorMessages(chat);
+                Chats.currentName = chat;
             }
             else
             {

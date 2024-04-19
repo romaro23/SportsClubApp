@@ -14,6 +14,7 @@ namespace SportsClubApp
         {
             System.IO.File.WriteAllText(@"C:\Users\Romaro\source\repos\C#\SportsClubApp\SportsClubApp\Trainers.txt", string.Empty);
             System.IO.File.WriteAllText(@"C:\Users\Romaro\source\repos\C#\SportsClubApp\SportsClubApp\Clients.txt", string.Empty);
+            
         }
     }
 

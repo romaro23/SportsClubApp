@@ -13,8 +13,8 @@
         <Button x:Name="Home" Click="Home_Click"
              Content="Home" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="10,22,0,0" VerticalAlignment="Top" Width="110" BorderBrush="{x:Null}" Background="#FF32D5D5" FontFamily="Bahnschrift" FontSize="13" Foreground="Black" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold"/>
         <Image Source="C:\Users\Romaro\Downloads\pngwing.com (1).png" Margin="15,20,855,446" Width="30"></Image>
-        <Button x:Name="Chats"
-            Content="Chats" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="10,69,0,0" VerticalAlignment="Top" Width="110" BorderBrush="{x:Null}" Background="#FF32D5D5" FontFamily="Bahnschrift" FontSize="13" Foreground="Black" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Click="OpenChats"/>
+        <Button x:Name="OpenChats"
+            Content="Chats" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="10,69,0,0" VerticalAlignment="Top" Width="110" BorderBrush="{x:Null}" Background="#FF32D5D5" FontFamily="Bahnschrift" FontSize="13" Foreground="Black" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Click="OpenChats_Click"/>
         <Button x:Name="Profile"
             Content="Profile" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="31" Margin="10,117,0,0" VerticalAlignment="Top" Width="110" BorderBrush="{x:Null}" Background="#FF32D5D5" FontFamily="Bahnschrift" FontSize="13" Foreground="Black" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold"/>
         <Image Source="C:\Users\Romaro\Downloads\pngwing.com (2).png" Margin="17,70,857,400"/>

@@ -41,6 +41,11 @@ namespace SportsClubApp
             T3.Content = ThirdTrainer.Item1;
             Trainer3.IsEnabled = ThirdTrainer.Item2;
         }
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            PreviousWindow.previousWindow = GetType();
+        }
         public static void InititalizeTrainers(params Tuple<string, bool>[] trainers)
         {
             var trainers_ = new (string, bool)[]
@@ -60,9 +65,36 @@ namespace SportsClubApp
             ThirdTrainer = new Tuple<string, bool>(trainers_[2].Item1, trainers_[2].Item2);
 
         }
-        private void OpenChats(object sender, RoutedEventArgs e)
+        private void MirrorMessages(string name_)
+        {
+            if (PreviousWindow.previousWindow == GetType())
+            {
+                return;
+            }
+            for (int i = 0; i < Chats.trainers[name_].Count; i++)
+            {
+                if (Chats.trainers[name_][i] is MyMessage)
+                {
+                    Chats.trainers[name_][i] = new CustomMessage(Chats.trainers[name_][i].Text);
+                }
+                else if (Chats.trainers[name_][i] is CustomMessage)
+                {
+                    Chats.trainers[name_][i] = new MyMessage(Chats.trainers[name_][i].Text);
+                }
+            }
+        }
+        // TODO: MIRROR MESAGES IN THE WINDOW
+        private void OpenChats_Click(object sender, RoutedEventArgs e)
         {
             Frame.Content = chats;
+            if (ActiveNM.Content != null)
+            {
+                chats.Name.Content = ActiveNM.Content.ToString();
+            }
+            string chat = YourName.Content.ToString() + "With" + "Trainer" + ActiveNM.Content.ToString();
+            chats.InitializeChat(chat);
+            Chats.currentName = chat;
+            MirrorMessages(chat);
         }
         private void Home_Click(object sender, RoutedEventArgs e)
         {
