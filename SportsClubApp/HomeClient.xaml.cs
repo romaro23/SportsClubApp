@@ -44,6 +44,10 @@ namespace SportsClubApp
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
+            if(YourName.Content != null && ActiveNM.Content != null)
+            {
+                MirrorMessages(YourName.Content.ToString() + "With" + "Trainer" + ActiveNM.Content.ToString());
+            }            
             PreviousWindow.previousWindow = GetType();
         }
         public static void InititalizeTrainers(params Tuple<string, bool>[] trainers)
@@ -71,15 +75,18 @@ namespace SportsClubApp
             {
                 return;
             }
-            for (int i = 0; i < Chats.trainers[name_].Count; i++)
+            if (Chats.trainers.ContainsKey(name_))
             {
-                if (Chats.trainers[name_][i] is MyMessage)
+                for (int i = 0; i < Chats.trainers[name_].Count; i++)
                 {
-                    Chats.trainers[name_][i] = new CustomMessage(Chats.trainers[name_][i].Text);
-                }
-                else if (Chats.trainers[name_][i] is CustomMessage)
-                {
-                    Chats.trainers[name_][i] = new MyMessage(Chats.trainers[name_][i].Text);
+                    if (Chats.trainers[name_][i] is MyMessage)
+                    {
+                        Chats.trainers[name_][i] = new CustomMessage(Chats.trainers[name_][i].Text);
+                    }
+                    else if (Chats.trainers[name_][i] is CustomMessage)
+                    {
+                        Chats.trainers[name_][i] = new MyMessage(Chats.trainers[name_][i].Text);
+                    }
                 }
             }
         }
@@ -90,11 +97,12 @@ namespace SportsClubApp
             if (ActiveNM.Content != null)
             {
                 chats.Name.Content = ActiveNM.Content.ToString();
+                string chat = YourName.Content.ToString() + "With" + "Trainer" + ActiveNM.Content.ToString();
+                chats.InitializeChat(chat);
+                Chats.currentName = chat;
             }
-            string chat = YourName.Content.ToString() + "With" + "Trainer" + ActiveNM.Content.ToString();
-            chats.InitializeChat(chat);
-            Chats.currentName = chat;
-            MirrorMessages(chat);
+            
+            
         }
         private void Home_Click(object sender, RoutedEventArgs e)
         {

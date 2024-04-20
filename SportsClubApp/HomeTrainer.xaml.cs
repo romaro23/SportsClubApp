@@ -48,7 +48,13 @@ namespace SportsClubApp
         }
         protected override void OnClosed(EventArgs e)
         {
-            base.OnClosed(e);
+            base.OnClosed(e);           
+            if(ActiveNM.Content != null)
+            {
+                MirrorMessages(ActiveNM.Content.ToString() + "With" + "Trainer" + name_);
+                
+            }
+            MirrorMessages(name_ + "With" + "Admin");
             PreviousWindow.previousWindow = GetType();
         }
         private void MirrorMessages(string name_)
@@ -57,15 +63,18 @@ namespace SportsClubApp
             {
                 return;
             }
-            for (int i = 0; i < Chats.trainers[name_].Count; i++)
+            if (Chats.trainers.ContainsKey(name_))
             {
-                if (Chats.trainers[name_][i] is MyMessage)
+                for (int i = 0; i < Chats.trainers[name_].Count; i++)
                 {
-                    Chats.trainers[name_][i] = new CustomMessage(Chats.trainers[name_][i].Text);
-                }
-                else if (Chats.trainers[name_][i] is CustomMessage)
-                {
-                    Chats.trainers[name_][i] = new MyMessage(Chats.trainers[name_][i].Text);
+                    if (Chats.trainers[name_][i] is MyMessage)
+                    {
+                        Chats.trainers[name_][i] = new CustomMessage(Chats.trainers[name_][i].Text);
+                    }
+                    else if (Chats.trainers[name_][i] is CustomMessage)
+                    {
+                        Chats.trainers[name_][i] = new MyMessage(Chats.trainers[name_][i].Text);
+                    }
                 }
             }
         }
@@ -74,8 +83,7 @@ namespace SportsClubApp
             string chat = name_ + "With" + "Admin";
             Frame.Content = chats;
             chats.Name.Content = "Administrator";
-            chats.InitializeChat(chat);
-            MirrorMessages(chat);
+            chats.InitializeChat(chat);            
             Chats.currentName = chat;
         }
         public static void SetMentee(string clientName, string trainerName)
@@ -135,12 +143,16 @@ namespace SportsClubApp
 
         private void YourMentee_Click(object sender, RoutedEventArgs e)
         {
-            string chat = ActiveNM.Content.ToString() + "With" + "Trainer" + name_;
-            Frame.Content = chats;
-            chats.Name.Content = ActiveNM.Content;
-            chats.InitializeChat(chat);
-            Chats.currentName = chat;
-            MirrorMessages(chat);
+            if(ActiveNM.Content != null)
+            {
+                string chat = ActiveNM.Content.ToString() + "With" + "Trainer" + name_;
+                Frame.Content = chats;
+                chats.Name.Content = ActiveNM.Content;
+                chats.InitializeChat(chat);
+                Chats.currentName = chat;
+            }
+            
+            
         }
     }
 }

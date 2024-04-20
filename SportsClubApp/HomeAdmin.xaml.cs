@@ -50,7 +50,19 @@ namespace SportsClubApp
         }
         protected override void OnClosed(EventArgs e)
         {
-            base.OnClosed(e);
+            base.OnClosed(e);            
+            if(T1.Content != null)
+            {
+                MirrorMessages(T1.Content.ToString() + "With" + "Admin");
+            }
+            if (T2.Content != null)
+            {
+                MirrorMessages(T2.Content.ToString() + "With" + "Admin");
+            }
+            if (T3.Content != null)
+            {
+                MirrorMessages(T3.Content.ToString() + "With" + "Admin");
+            }
             PreviousWindow.previousWindow = GetType();
         }
         private void OpenChats(object sender, RoutedEventArgs e)
@@ -208,17 +220,21 @@ namespace SportsClubApp
             {
                 return;
             }
-            for (int i = 0; i < Chats.trainers[name_].Count; i++)
+            if(Chats.trainers.ContainsKey(name_))
             {
-                if (Chats.trainers[name_][i] is MyMessage)
+                for (int i = 0; i < Chats.trainers[name_].Count; i++)
                 {
-                    Chats.trainers[name_][i] = new CustomMessage(Chats.trainers[name_][i].Text);
-                }
-                else if (Chats.trainers[name_][i] is CustomMessage)
-                {
-                    Chats.trainers[name_][i] = new MyMessage(Chats.trainers[name_][i].Text);
+                    if (Chats.trainers[name_][i] is MyMessage)
+                    {
+                        Chats.trainers[name_][i] = new CustomMessage(Chats.trainers[name_][i].Text);
+                    }
+                    else if (Chats.trainers[name_][i] is CustomMessage)
+                    {
+                        Chats.trainers[name_][i] = new MyMessage(Chats.trainers[name_][i].Text);
+                    }
                 }
             }
+            
         }
         private void Trainer1_Click(object sender, RoutedEventArgs e)
         {
@@ -226,8 +242,7 @@ namespace SportsClubApp
             {
                 string chat = T1.Content.ToString()+"With"+"Admin";
                 chats.Name.Content = T1.Content;
-                chats.InitializeChat(chat);                
-                MirrorMessages(chat);
+                chats.InitializeChat(chat);                               
                 Chats.currentName = chat;
             }
             else
@@ -249,7 +264,6 @@ namespace SportsClubApp
                 string chat = T2.Content.ToString() + "With" + "Admin";
                 chats.Name.Content = T2.Content;
                 chats.InitializeChat(chat);               
-                MirrorMessages(chat);
                 Chats.currentName = chat;
             }
             else
@@ -271,7 +285,6 @@ namespace SportsClubApp
                 string chat = T3.Content.ToString() + "With" + "Admin";
                 chats.Name.Content = T3.Content;
                 chats.InitializeChat(chat);               
-                MirrorMessages(chat);
                 Chats.currentName = chat;
             }
             else
