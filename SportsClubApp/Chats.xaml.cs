@@ -26,14 +26,17 @@ namespace SportsClubApp
         public static string currentName;
         public Chats()
         {
-            InitializeComponent();                                   
+            InitializeComponent();            
+            if(Name.Content != null)
+            {
+                Base.Visibility = Visibility.Visible;
+            }
         }
         public void InitializeChat(string name)
         {
-            if (Name.Content == null)
+            if (Name.Content != null)
             {
-                SendBox.IsHitTestVisible = false;
-                Send.IsHitTestVisible = false;
+                Base.Visibility = Visibility.Visible;
             }
             if (!trainers.ContainsKey(name))
             {

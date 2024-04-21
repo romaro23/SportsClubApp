@@ -28,6 +28,7 @@ namespace SportsClubApp
             InitializeComponent();
             WorkingDays.DisplayDateStart = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
             WorkingDays.DisplayDateEnd = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month));
+            WorkingDays.UpdateLayout();
             
         }
         private void Calendar_SelectionChanged(object sender, SelectionChangedEventArgs e)

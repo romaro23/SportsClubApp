@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SportsClubApp"
         mc:Ignorable="d"
-        Title="HomeTrainer" Height="450" Width="800" WindowStyle="ToolWindow" ResizeMode="NoResize">
+        Title="Trainer" Height="450" Width="800" WindowStyle="ToolWindow" ResizeMode="NoResize">
     <Grid Width="903" Height="500" Background="#FFD9D9D9">
         <Rectangle HorizontalAlignment="Left" Height="500" Margin="129,0,0,0" VerticalAlignment="Center" Width="562" Fill="White">
 

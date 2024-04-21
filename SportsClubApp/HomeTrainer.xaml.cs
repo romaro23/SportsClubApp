@@ -82,6 +82,7 @@ namespace SportsClubApp
         {
             string chat = name_ + "With" + "Admin";
             Frame.Content = chats;
+            Title = "Your chats";
             chats.Name.Content = "Administrator";
             chats.InitializeChat(chat);            
             Chats.currentName = chat;
@@ -101,6 +102,7 @@ namespace SportsClubApp
         private void Home_Click(object sender, RoutedEventArgs e)
         {
             Frame.Content = home;
+            Title = "Home";
         }
 
         private void Out(object sender, RoutedEventArgs e)

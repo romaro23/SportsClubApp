@@ -23,6 +23,7 @@ namespace SportsClubApp
     {
         private Chats chats = new Chats();
         private Home home = new Home();
+        private Profile profile = new Profile();
         private static SolidColorBrush activeFill;
         private static System.Windows.Visibility activeIMGVisibility = Visibility.Hidden;
         private static string activeNMContent;
@@ -90,10 +91,10 @@ namespace SportsClubApp
                 }
             }
         }
-        // TODO: MIRROR MESAGES IN THE WINDOW
         private void OpenChats_Click(object sender, RoutedEventArgs e)
         {
             Frame.Content = chats;
+            Title = "Your chats";
             if (ActiveNM.Content != null)
             {
                 chats.Name.Content = ActiveNM.Content.ToString();
@@ -107,6 +108,7 @@ namespace SportsClubApp
         private void Home_Click(object sender, RoutedEventArgs e)
         {
             Frame.Content = home;
+            Title = "Home";
         }
 
         private void Out(object sender, RoutedEventArgs e)
@@ -185,6 +187,12 @@ namespace SportsClubApp
             activeNMContent = "";
             isEnabled = false;
             ActiveTrainer();
+        }
+
+        private void Profile_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Content = profile;
+            Title = "Profile";
         }
     }
 }

@@ -69,11 +69,13 @@ namespace SportsClubApp
         {
             chats = new Chats();
             Frame.Content = chats;
-            
+            Title = "Your chats";
+
         }
         private void Home_Click(object sender, RoutedEventArgs e)
         {
             Frame.Content = home;
+            Title = "Home";
         }
         private void Out(object sender, RoutedEventArgs e)
         {
