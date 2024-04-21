@@ -41,6 +41,29 @@ namespace SportsClubApp
             Trainer2.IsEnabled = SecondTrainer.Item2;
             T3.Content = ThirdTrainer.Item1;
             Trainer3.IsEnabled = ThirdTrainer.Item2;
+            FullPlan();
+        }
+        private void FullPlan()
+        {
+            if(!Profile.isFullPlan)
+            {
+                Occupation_Copy.Visibility = Visibility.Hidden;
+                Occupation_Copy1.Visibility = Visibility.Hidden;
+                Trainer.Visibility = Visibility.Hidden;
+                Trainer1.Visibility = Visibility.Hidden;
+                Trainer2.Visibility = Visibility.Hidden;
+                Trainer3.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                Occupation_Copy.Visibility = Visibility.Visible;
+                Occupation_Copy1.Visibility = Visibility.Visible;
+                Trainer.Visibility = Visibility.Visible;
+                Trainer1.Visibility = Visibility.Visible;
+                Trainer2.Visibility = Visibility.Visible;
+                Trainer3.Visibility = Visibility.Visible;
+            }
+            
         }
         protected override void OnClosed(EventArgs e)
         {

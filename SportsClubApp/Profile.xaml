@@ -15,20 +15,50 @@
         <Rectangle Margin="10,182,12,0" RadiusX="5" RadiusY="5"  Height="215"  Stroke="#FF32D5D5" Fill="#3332D5D5" VerticalAlignment="Top" Width="538"/>
         <Label Content="Subscription plan&#x9;" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="18" Margin="0,193,0,0"/>
         <Grid Margin="-1,202,1,36">
-            <Grid Grid.Column="0" Height="157"  Width="130">
+            <Grid x:Name="Base" Grid.Column="0" Height="157"  Width="130" IsEnabled="False">
                 <Label Content="Base plan" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="12" VerticalAlignment="Top" HorizontalAlignment="Center"/>
                 <Rectangle Name="Plan1" RadiusX="5" RadiusY="5"  Height="157" Stroke="#FF32D5D5" Fill="#3332D5D5"  Width="130"/>
-                <Button Style="{StaticResource ButtonStyle1}" Name="Purchase1" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Width="84" Height="26" Click="Button_Click" Margin="0,121,0,0" Background="#FF32D5D5"/>
+                <Button Style="{StaticResource ButtonStyle1}" Name="Purchase1" Content="25$" HorizontalAlignment="Center" VerticalAlignment="Top" Width="84" Height="26" Click="Button_Click" Margin="0,121,0,0" Background="#FF32D5D5" FontFamily="Bahnschrift" FontWeight="Bold"/>
+                <Label FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,70">
+                    <Label.Content>
+                        <AccessText TextWrapping="Wrap" Text="- Access to our fitness center"/>
+                    </Label.Content>
+                </Label>
             </Grid>
-            <Grid Grid.Column="1" Height="157"  Width="130">
+            <Grid x:Name="Extended" Grid.Column="1" Height="157"  Width="130" IsEnabled="False">
                 <Label Content="Extended plan" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="12" VerticalAlignment="Top" HorizontalAlignment="Center"/>
                 <Rectangle Name="Plan2" RadiusX="5" RadiusY="5"  Height="157" Stroke="#FF32D5D5" Fill="#3332D5D5"  Width="130"/>
-                <Button Style="{StaticResource ButtonStyle1}" Name="Purchase2" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Width="84" Height="26" Click="Button_Click" Margin="0,121,0,0" Background="#FF32D5D5"/>
+                <Button Style="{StaticResource ButtonStyle1}" Name="Purchase2" Content="50$" HorizontalAlignment="Center" VerticalAlignment="Top" Width="84" Height="26" Click="Button_Click" Margin="0,121,0,0" Background="#FF32D5D5" FontFamily="Bahnschrift" FontWeight="Bold"/>
+                <Label FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,70">
+                    <Label.Content>
+                        <AccessText TextWrapping="Wrap" Text="- Access to our fitness center"/>
+                    </Label.Content>
+                </Label>
+                <Label FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,10">
+                    <Label.Content>
+                        <AccessText TextWrapping="Wrap" Text="- Access to our swimming pool" Width="101"/>
+                    </Label.Content>
+                </Label>
             </Grid>
-            <Grid Grid.Column="2" Height="157"  Width="130">
+            <Grid x:Name="Full" Grid.Column="2" Height="157"  Width="130" IsEnabled="False">
                 <Label Content="Full plan" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="12" VerticalAlignment="Top" HorizontalAlignment="Center"/>
                 <Rectangle Name="Plan3" RadiusX="5" RadiusY="5"  Height="157" Stroke="#FF32D5D5" Fill="#3332D5D5"  Width="130"/>
-                <Button Style="{StaticResource ButtonStyle1}" Name="Purchase3" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Width="84" Height="26" Click="Button_Click" Margin="0,121,0,0" Background="#FF32D5D5"/>
+                <Button Style="{StaticResource ButtonStyle1}" Name="Purchase3" Content="100$" HorizontalAlignment="Center" VerticalAlignment="Top" Width="84" Height="26" Click="Button_Click" Margin="0,121,0,0" Background="#FF32D5D5" FontFamily="Bahnschrift" FontWeight="Bold"/>
+                <Label FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,70">
+                    <Label.Content>
+                        <AccessText TextWrapping="Wrap" Text="- Access to our fitness center"/>
+                    </Label.Content>
+                </Label>
+                <Label FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,10">
+                    <Label.Content>
+                        <AccessText TextWrapping="Wrap" Text="- Access to our swimming pool" Width="99"/>
+                    </Label.Content>
+                </Label>
+                <Label FontWeight="Bold" FontFamily="Bahnschrift" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,-50">
+                    <Label.Content>
+                        <AccessText TextWrapping="Wrap" Text="- Ability to work with a trainer"/>
+                    </Label.Content>
+                </Label>
             </Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
