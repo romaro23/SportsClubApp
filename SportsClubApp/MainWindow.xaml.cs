@@ -88,10 +88,10 @@ namespace SportsClubApp
             reader.Close();
             return data;
         }
-        private Dictionary<string, string> ReadClients(string path)
+        private Dictionary<Tuple<string, string>, string> ReadClients(string path)
         {
             StreamReader reader = new StreamReader(path);
-            Dictionary<string, string> data = new Dictionary<string, string>();
+            Dictionary<Tuple<string, string>, string> data = new Dictionary<Tuple<string, string>, string>();
             while (!reader.EndOfStream)
             {
                 string line = reader.ReadLine();
@@ -100,7 +100,8 @@ namespace SportsClubApp
                     return data;
                 }
                 var words = line.Split(' ');
-                data.Add(words[0], words[1]);
+                Tuple<string, string> pair = new Tuple<string, string>(words[0], words[1]);
+                data.Add(pair, words[2]);
             }
             reader.Close();
             return data;
@@ -110,7 +111,7 @@ namespace SportsClubApp
             if(VerifyData(EmailInput, PasswordInput)  )
             {
                 Dictionary<Tuple<string, string>, string> trainers = ReadTrainers("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Trainers.txt");
-                Dictionary<string, string> clients = ReadClients("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Clients.txt");
+                Dictionary<Tuple<string, string>, string> clients = ReadClients("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Clients.txt");
                 Tuple<string, string> pair = new Tuple<string, string>(EmailInput.Text, PasswordInput.Password);
                 if (trainers.TryGetValue(pair, out var foundTrainer))
                 {                   
@@ -118,9 +119,9 @@ namespace SportsClubApp
                     homeTrainer.Show();
                     Close();
                 }
-                else if (clients.TryGetValue(EmailInput.Text, out var foundClient) && foundClient == PasswordInput.Password)
+                else if (clients.TryGetValue(pair, out var foundClient))
                 {
-                    HomeClient homeClient = new HomeClient();
+                    HomeClient homeClient = new HomeClient(foundClient);
                     homeClient.Show();
                     Close();
                 }

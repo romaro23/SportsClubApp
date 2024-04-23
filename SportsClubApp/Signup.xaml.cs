@@ -69,7 +69,7 @@ namespace SportsClubApp
 
             if (VerifyData(EmailInput, PasswordInput))
             {
-                HomeClient homeClient = new HomeClient();
+                HomeClient homeClient = new HomeClient("");
                 homeClient.Show();
                 this.Close();
             }
@@ -135,7 +135,7 @@ namespace SportsClubApp
                 else
                 {
                     StreamWriter writer = new StreamWriter("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Clients.txt", true);
-                    writer.WriteLine(EmailInput.Text + " " + PasswordInput.Password);
+                    writer.WriteLine(EmailInput.Text + " " + PasswordInput.Password);                    
                     writer.Close();
                     OpenHomeWindow(sender, e);
                     this.Close();

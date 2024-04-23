@@ -23,7 +23,7 @@ namespace SportsClubApp
         private Home home = new Home();
         private TrainerInfo trainer = new TrainerInfo();
         public static string name_;
-        private static Dictionary<string, string> mentees = new Dictionary<string, string>();
+        public static Dictionary<string, string> mentees = new Dictionary<string, string>();
         public HomeTrainer(string name)
         {
             InitializeComponent();
@@ -93,12 +93,12 @@ namespace SportsClubApp
             {
                 return;
             }
-            mentees[trainerName] = clientName;
+            mentees[trainerName] = clientName;           
         }
         public static void UnSetMentee(string name)
         {           
             mentees.Remove(name);
-        }
+     }
         private void Home_Click(object sender, RoutedEventArgs e)
         {
             Frame.Content = home;

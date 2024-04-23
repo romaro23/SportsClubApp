@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,12 +30,20 @@ namespace SportsClubApp
         private static System.Windows.Visibility activeIMGVisibility = Visibility.Hidden;
         private static string activeNMContent;
         private static bool isEnabled;
+        public static string name = "";
         private static Tuple<string, bool> FirstTrainer = new Tuple<string, bool>("", false);
         private static Tuple<string, bool> SecondTrainer = new Tuple<string, bool>("", false);
         private static Tuple<string, bool> ThirdTrainer = new Tuple<string, bool>("", false);
-        public HomeClient()
+        public HomeClient(string name_)
         {
             InitializeComponent();
+            name = name_;
+            YourName.Content = name;
+            if(YourName != null && YourName.Content != "")
+            {
+                Ask.Visibility = Visibility.Hidden;
+            }
+            Frame.Content = home;
             ActiveTrainer();
             T1.Content = FirstTrainer.Item1;
             Trainer1.IsEnabled = FirstTrainer.Item2;
@@ -41,9 +51,23 @@ namespace SportsClubApp
             Trainer2.IsEnabled = SecondTrainer.Item2;
             T3.Content = ThirdTrainer.Item1;
             Trainer3.IsEnabled = ThirdTrainer.Item2;
+            if (HomeTrainer.mentees.ContainsValue(YourName.Content.ToString()))
+            {
+                string key = HomeTrainer.mentees.FirstOrDefault(x => x.Value == YourName.Content.ToString()).Key;
+                SetTrainerProperties(key);
+                ActiveTrainer();
+            }
+            else
+            {
+                activeFill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#1932D5D5"));
+                activeIMGVisibility = Visibility.Hidden;
+                activeNMContent = "";
+                isEnabled = false;
+                ActiveTrainer();
+            }
             FullPlan();
         }
-        private void FullPlan()
+        public void FullPlan()
         {
             if(!Profile.isFullPlan)
             {
@@ -53,6 +77,9 @@ namespace SportsClubApp
                 Trainer1.Visibility = Visibility.Hidden;
                 Trainer2.Visibility = Visibility.Hidden;
                 Trainer3.Visibility = Visibility.Hidden;
+                T1.Visibility = Visibility.Hidden;
+                T2.Visibility = Visibility.Hidden;
+                T3.Visibility = Visibility.Hidden;
             }
             else
             {
@@ -62,6 +89,9 @@ namespace SportsClubApp
                 Trainer1.Visibility = Visibility.Visible;
                 Trainer2.Visibility = Visibility.Visible;
                 Trainer3.Visibility = Visibility.Visible;
+                T1.Visibility= Visibility.Visible;
+                T2.Visibility= Visibility.Visible;
+                T3.Visibility= Visibility.Visible;
             }
             
         }
@@ -172,9 +202,23 @@ namespace SportsClubApp
             }
             return false;
         }
+        private bool IsTrainerBusy(string name)
+        {
+            if(HomeTrainer.mentees.ContainsKey(name))
+            {
+                string messageBoxText = "This trainer is busy. Try another.";
+                string caption = "";
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                MessageBoxResult result;
+                result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
+                return true;
+            }           
+            return false;
+        }
         private void Trainer1_Click(object sender, RoutedEventArgs e)
         {
-            if(IsTrainerEnabled()) 
+            if(IsTrainerEnabled() || IsTrainerBusy(T1.Content.ToString())) 
             {
                 return;
             }
@@ -184,7 +228,7 @@ namespace SportsClubApp
 
         private void Trainer2_Click(object sender, RoutedEventArgs e)
         {
-            if (IsTrainerEnabled())
+            if (IsTrainerEnabled() || IsTrainerBusy(T2.Content.ToString()))
             {
                 return;
             }
@@ -194,7 +238,7 @@ namespace SportsClubApp
 
         private void Trainer3_Click(object sender, RoutedEventArgs e)
         {
-            if (IsTrainerEnabled())
+            if (IsTrainerEnabled() || IsTrainerBusy(T3.Content.ToString()))
             {
                 return;
             }
@@ -216,6 +260,22 @@ namespace SportsClubApp
         {
             Frame.Content = profile;
             Title = "Profile";
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(AskName.Text != null && AskName.Text != "")
+            {
+                YourName.Content = AskName.Text;
+                string[] lines = File.ReadAllLines("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Clients.txt");
+                lines[lines.Length - 1] += " " + AskName.Text;
+                File.WriteAllLines("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Clients.txt", lines);
+                name = AskName.Text;
+                Ask.Visibility = Visibility.Hidden;
+                InvalidateVisual();
+                IsHitTestVisible = true;
+            }
+            
         }
     }
 }

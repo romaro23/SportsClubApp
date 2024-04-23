@@ -22,7 +22,7 @@ namespace SportsClubApp
     /// </summary>
     public partial class Profile : Page
     {
-        public static bool isFullPlan = false;
+        public static bool isFullPlan;
         private static bool isActive = false;
         private static Dictionary<string, bool> plans = new Dictionary<string, bool>();
         private static Dictionary<string, SolidColorBrush> rectangles = new Dictionary<string, SolidColorBrush>();
@@ -129,6 +129,13 @@ namespace SportsClubApp
                 rectangles[Plan3.Name] = color;
                 plans[Purchase3.Name] = false;
                 isFullPlan = true;
+                Window parentWindow = Window.GetWindow(this);
+                if (parentWindow != null && parentWindow is HomeClient)
+                {
+                    HomeClient homeClientWindow = (HomeClient)parentWindow;
+                    homeClientWindow.FullPlan();
+                    homeClientWindow.InvalidateVisual();
+                }
                 isActive = true;
                 Base.IsEnabled = false;
                 Extended.IsEnabled = false;
