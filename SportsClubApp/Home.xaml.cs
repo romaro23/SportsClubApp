@@ -31,6 +31,29 @@ namespace SportsClubApp
             Tomorrow.Content = DateTime.Today.AddDays(1).ToString("dd MMMM", CultureInfo.CurrentCulture);
             TodayBox.SelectionChanged += TodayBox_SelectionChanged;
             TomorrowBox.SelectionChanged += TomorrowBox_SelectionChanged;
+            Loaded += Home_Loaded;
+        }
+
+        private void Home_Loaded(object sender, RoutedEventArgs e)
+        { 
+            Window parentWindow = Window.GetWindow(this);
+            if (parentWindow != null && parentWindow is HomeTrainer)
+            {
+                HomeTrainer homeTrainerWindow = (HomeTrainer)parentWindow;
+                Welcome1.Text = "Welcome! It is a progress page for your mentee.";
+                Welcome2.Text = "Here you are able to set a training schedule for a mentee. Good luck!";
+                if(homeTrainerWindow.ActiveNM.Content != null || homeTrainerWindow.ActiveNM.Content != "") 
+                {
+                    TrainingSchedule.Content = "Training schedule for " + homeTrainerWindow.ActiveNM.Content;
+                }
+                else
+                {
+                    TrainingSchedule.Content = "Training schedule for...";
+                }
+                
+                ThisMonth.Visibility = Visibility.Hidden;
+            }
+
         }
 
         private void TomorrowBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

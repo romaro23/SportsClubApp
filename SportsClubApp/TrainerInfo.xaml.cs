@@ -29,8 +29,19 @@ namespace SportsClubApp
             WorkingDays.DisplayDateStart = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
             WorkingDays.DisplayDateEnd = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month));
             WorkingDays.UpdateLayout();
-            
+            Loaded += TrainerInfo_Loaded;
         }
+
+        private void TrainerInfo_Loaded(object sender, RoutedEventArgs e)
+        {
+            Window parentWindow = Window.GetWindow(this);
+            if (parentWindow != null && parentWindow is HomeTrainer)
+            {
+                HomeTrainer homeTrainerWindow = (HomeTrainer)parentWindow;
+                TrainerName.Content = homeTrainerWindow.Name.Content;
+            }
+        }
+
         private void Calendar_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (e.AddedItems != null && e.AddedItems.Count > 0)

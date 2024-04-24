@@ -3,9 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:SportsClubApp"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:controls="using:Microsoft.UI.Xaml.Controls"
              StartupUri="MainWindow.xaml">
 
     <Application.Resources>
+        
         <ResourceDictionary>
             <ControlTemplate x:Key="CustomToggleButton" TargetType="ToggleButton">
                 <Grid>

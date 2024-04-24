@@ -33,10 +33,14 @@
     </Page.Resources>
 
     <Grid >
-        <Rectangle  HorizontalAlignment="Left" Height="448" VerticalAlignment="Top" Width="556" Fill="White" RenderTransformOrigin="0.5,0.5" Margin="-1,-18,0,0"/>
-        <Grid Name="Base" Margin="108,26,112,55" Visibility="Hidden">
-            <Rectangle Stroke="#FF32D5D5" RadiusX="20" RadiusY="20" StrokeThickness="5" Fill="#1932D5D5" IsHitTestVisible="False"/>
-            <ListBox ItemContainerStyle="{StaticResource ListBoxItemStyle1}" Style="{DynamicResource ListBoxStyle1}" ScrollViewer.VerticalScrollBarVisibility="Hidden" x:Name="ListBox" Margin="36,65,28,43"/>
+        <Rectangle  HorizontalAlignment="Left" Height="430" VerticalAlignment="Top" Width="556" RenderTransformOrigin="0.5,0.5" Margin="-1,0,0,0">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="C:\Users\Romaro\source\repos\C#\SportsClubApp\SportsClubApp\Back.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Grid Name="Base" Margin="108,26,112,55" Visibility="Visible">
+            <Rectangle Stroke="#FF32D5D5" RadiusX="20" RadiusY="20" StrokeThickness="5" Fill="#E47CFFFF" IsHitTestVisible="False"/>
+            <ListBox ItemContainerStyle="{StaticResource ListBoxItemStyle1}" Style="{DynamicResource ListBoxStyle1}" ScrollViewer.VerticalScrollBarVisibility="Hidden" x:Name="ListBox" Margin="36,65,28,43" Background="#E44DCFCF"/>
             <TextBox HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{DynamicResource SendBox}" x:Name="SendBox" RenderTransformOrigin="0.318,1.372" FontWeight="Bold" FontFamily="Bahnschrift" Margin="36,334,62,13" />
             <Button x:Name="Send" Click="Button_Click" RenderTransformOrigin="0.5,0.5"  Style="{DynamicResource SendButton}" Margin="274,331,28,10">
                 <Image Source="C:\Users\Romaro\Downloads\pngwing.com (8).png" Height="28" Width="23"/>

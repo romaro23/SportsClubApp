@@ -30,6 +30,7 @@ namespace SportsClubApp
             name_ = name;
             Name.Content = name_;
             Chats.currentName = name_;
+            Frame.Content = home;            
             if (mentees.ContainsKey(name_))
             {
                 ActiveNM.Content = mentees[name_];
@@ -44,7 +45,11 @@ namespace SportsClubApp
                 ActiveIMG.Visibility = Visibility.Hidden;
                 YourMentee.IsEnabled = false;
             }
-
+            if (ActiveNM.Content == null || ActiveNM.Content == "")
+            {
+                home.TodayBox.IsHitTestVisible = false;
+                home.TomorrowBox.IsHitTestVisible = false;
+            }
         }
         protected override void OnClosed(EventArgs e)
         {

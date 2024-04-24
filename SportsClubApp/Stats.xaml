@@ -1,0 +1,30 @@
+﻿<Page x:Class="SportsClubApp.Stats"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:dv="clr-namespace:System.Windows.Controls.DataVisualization;assembly=DotNetProjects.DataVisualization.Toolkit"
+       xmlns:dvc="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=DotNetProjects.DataVisualization.Toolkit"
+      xmlns:local="clr-namespace:SportsClubApp"
+      Height="450" Width="560"
+      Title="Stats">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\Romaro\source\repos\C#\SportsClubApp\SportsClubApp\Back.jpg"></ImageBrush>
+        </Grid.Background>
+        <dvc:Chart Title="Plans purchasing" InkCanvas.Top="80" InkCanvas.Left="10" Name="PlansChart" Background="#FF37DAE6" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="16" Margin="263,10,10,240">
+            <dvc:Chart.Series>
+                <dvc:PieSeries Title="Experience" IndependentValueBinding="{Binding Path=Key}" DependentValueBinding="{Binding Path=Value}">
+                </dvc:PieSeries>
+            </dvc:Chart.Series>
+        </dvc:Chart>
+        <dvc:Chart Title="Monthly income" Name="Income" InkCanvas.Top="80" InkCanvas.Left="10" Background="#FF37DAE6" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="16" Margin="23,215,147,45">
+            <dvc:Chart.Series>
+                <dvc:ColumnSeries Title="Income $" IndependentValueBinding="{Binding Path=Key}" DependentValueBinding="{Binding Path=Value}">
+                    
+                </dvc:ColumnSeries>
+            </dvc:Chart.Series>
+        </dvc:Chart>
+    </Grid>
+</Page>

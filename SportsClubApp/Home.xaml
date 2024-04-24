@@ -5,38 +5,45 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:sys="clr-namespace:System;assembly=mscorlib"     
-        xmlns:local="clr-namespace:SportsClubApp"
-        mc:Ignorable="d"
+        xmlns:local="clr-namespace:SportsClubApp" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      
+      mc:Ignorable="d"
         Title="HomeAdmin" Height="450" Width="560">
-        
+
     <Grid>
-        <Rectangle  HorizontalAlignment="Center" Height="450" VerticalAlignment="Top" Width="560" Fill="White" Margin="0,10,0,0" />
-        <Rectangle Margin="10,20,12,0" RadiusX="5" RadiusY="5"  Height="163"  Stroke="#FF32D5D5" Fill="#3332D5D5" VerticalAlignment="Top" Width="538"/>
-        <Label Content="Training schedule&#x9;" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="18" Margin="0,29,0,0"/>
-        <Grid Margin="0,29,0,276">
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\Romaro\source\repos\C#\SportsClubApp\SportsClubApp\Back.jpg"></ImageBrush>
+        </Grid.Background>
+
+        <Rectangle Margin="10,101,10,0" RadiusX="5" RadiusY="5"  Height="162"  Stroke="#FF32D5D5" Fill="#E47CFFFF" VerticalAlignment="Top"/>
+        <Label Name="TrainingSchedule" Content="Training schedule&#x9;" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="18" Margin="0,101,0,0"/>
+        <Grid Margin="0,101,0,205">
             <Grid x:Name="Base" Grid.Column="0"  Width="130" Margin="28,41,28,-3">
-                <Label Name="Yesterday" Content="" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="12" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-                <Rectangle Name="Plan1" RadiusX="5" RadiusY="5" Stroke="#FF32D5D5" Fill="#3332D5D5"  Width="130" Margin="0,0,0,19"/>
-                <ComboBox Name="YesterdayBox" ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" HorizontalContentAlignment="Center" Margin="10,37,10,0" BorderBrush="#FFADEEEE" VerticalAlignment="Top" Background="#FFD4F5F5" FontFamily="Bahnschrift" FontWeight="Bold" SelectedIndex="1" IsHitTestVisible="False">
+                <Rectangle Name="Plan1" RadiusX="5" RadiusY="5" Stroke="#FF32D5D5" Fill="#E44DCFCF"  Width="130" Margin="0,0,0,19"/>
+                <Label x:Name="Yesterday" Content="" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="12" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                <ComboBox Name="YesterdayBox" ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" HorizontalContentAlignment="Center" Margin="10,37,10,0" BorderBrush="#FFADEEEE" VerticalAlignment="Top" Background="#FFD4F5F5" FontFamily="Bahnschrift" FontWeight="Bold" IsHitTestVisible="False">
 
                     <ComboBoxItem FontFamily="Bahnschrift" FontWeight="Bold">Arms</ComboBoxItem>
                     <ComboBoxItem FontFamily="Bahnschrift" FontWeight="Bold">Legs</ComboBoxItem>
                     <ComboBoxItem FontFamily="Bahnschrift" FontWeight="Bold">Chest</ComboBoxItem>
                 </ComboBox>
+                
+
             </Grid>
             <Grid x:Name="Extended" Grid.Column="1"  Width="130" Margin="28,41,28,-3">
-                <Label Name="Today" Content="" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="12" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-                <Rectangle Name="Plan2" RadiusX="5" RadiusY="5" Stroke="#FF32D5D5" Fill="#3332D5D5"  Width="130" Margin="0,0,0,19"/>
+                <Rectangle Name="Plan2" RadiusX="5" RadiusY="5" Stroke="#FF32D5D5" Fill="#E44DCFCF"  Width="130" Margin="0,0,0,19"/>
+                <Label x:Name="Today" Content="" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="12" VerticalAlignment="Top" HorizontalAlignment="Center"/>
                 <ComboBox Name="TodayBox" ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" HorizontalContentAlignment="Center" Margin="10,37,10,0" BorderBrush="#FFADEEEE" VerticalAlignment="Top" Background="#FFD4F5F5" FontFamily="Bahnschrift" FontWeight="Bold" >
 
                     <ComboBoxItem FontFamily="Bahnschrift" FontWeight="Bold">Arms</ComboBoxItem>
                     <ComboBoxItem FontFamily="Bahnschrift" FontWeight="Bold">Legs</ComboBoxItem>
                     <ComboBoxItem FontFamily="Bahnschrift" FontWeight="Bold">Chest</ComboBoxItem>
                 </ComboBox>
+                
             </Grid>
             <Grid x:Name="Full" Grid.Column="2"  Width="130" Margin="28,41,28,-3">
-                <Label Name="Tomorrow" Content="" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="12" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-                <Rectangle Name="Plan3" RadiusX="5" RadiusY="5" Stroke="#FF32D5D5" Fill="#3332D5D5"  Width="130" Margin="0,0,0,19"/>
+                <Rectangle Name="Plan3" RadiusX="5" RadiusY="5" Stroke="#FF32D5D5" Fill="#E44DCFCF"  Width="130" Margin="0,0,0,19"/>
+                <Label x:Name="Tomorrow" Content="" FontWeight="Bold" FontFamily="Bahnschrift" FontSize="12" VerticalAlignment="Top" HorizontalAlignment="Center"/>
                 <ComboBox Name="TomorrowBox" ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" HorizontalContentAlignment="Center" Margin="10,37,10,0" BorderBrush="#FFADEEEE" VerticalAlignment="Top" Background="#FFD4F5F5" FontFamily="Bahnschrift" FontWeight="Bold" >
 
                     <ComboBoxItem FontFamily="Bahnschrift" FontWeight="Bold">Arms</ComboBoxItem>
@@ -50,5 +57,24 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
         </Grid>
+        <Grid Margin="64,10,64,354">
+            <Rectangle  RadiusX="5" RadiusY="5"  Height="84"  Stroke="#FF32D5D5" Fill="#E47CFFFF" VerticalAlignment="Top"/>
+            <materialDesign:PackIcon Kind="HandBackLeftOutline" Height="33" Width="29" Margin="10,10,0,0" />
+            <TextBlock Name="Welcome1" HorizontalAlignment="Left" Height="22" Margin="44,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="378" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="18"><Run Text="Welcome! It is your progress page."/><LineBreak/><Run/></TextBlock>
+            <TextBlock Name="Welcome2" HorizontalAlignment="Left" Height="38" Margin="48,43,0,0" TextWrapping="Wrap" Text="Here you are able to monitor your progress and training schedule. Good luck!" VerticalAlignment="Top" Width="288" FontFamily="Bahnschrift" FontSize="14"/>
+        </Grid>
+        <Grid Name="ThisMonth" Margin="0,-52,0,52">
+            <Rectangle Margin="130,325,309,0" RadiusX="5" RadiusY="5"  Height="115"  Stroke="#FF32D5D5" Fill="#E47CFFFF" VerticalAlignment="Top"/>
+            <Rectangle Margin="321,325,118,0" VerticalAlignment="Top" Stroke="#FF32D5D5" RadiusY="5" RadiusX="5" Height="115" Fill="#E47CFFFF"/>
+            <TextBlock HorizontalAlignment="Left" Height="21" Margin="156,329,0,0" TextWrapping="Wrap" Text="Pool visits " VerticalAlignment="Top" Width="67" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="14"/>
+            <TextBlock HorizontalAlignment="Left" Height="19" Margin="352,329,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.691,0.498"><Run Text="Trainings"/><LineBreak/><Run/></TextBlock>
+            <Rectangle x:Name="Plan1_Copy" RadiusX="5" RadiusY="5" Stroke="#FF32D5D5" Margin="156,355,338,35" Fill="White"/>
+            <Rectangle x:Name="Plan1_Copy1" RadiusX="5" RadiusY="5" Stroke="#FF32D5D5" Margin="348,355,146,35" Fill="White"/>
+            <Label Content="5" HorizontalAlignment="Left" Height="44" Margin="173,360,0,0" VerticalAlignment="Top" Width="32" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="36"/>
+            <Label Content="12" HorizontalAlignment="Left" Height="44" Margin="358,360,0,0" VerticalAlignment="Top" Width="46" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="36"/>
+        </Grid>
+
+
     </Grid>
+
 </Page>

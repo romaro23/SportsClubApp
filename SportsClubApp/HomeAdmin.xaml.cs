@@ -26,7 +26,7 @@ namespace SportsClubApp
     public partial class HomeAdmin : Window
     {
         private Chats chats;
-        private Home home = new Home();
+        private Stats stats = new Stats();
         private TrainerInfo trainer = new TrainerInfo();
         private static Tuple<string, bool> FirstTrainer = new Tuple<string, bool>("", false);
         private static Tuple<string, bool> SecondTrainer = new Tuple<string, bool>("", false);
@@ -74,7 +74,7 @@ namespace SportsClubApp
         }
         private void Home_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Content = home;
+            Frame.Content = stats;
             Title = "Home";
         }
         private void Out(object sender, RoutedEventArgs e)
