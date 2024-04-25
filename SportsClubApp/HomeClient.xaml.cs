@@ -69,7 +69,19 @@ namespace SportsClubApp
         }
         public void FullPlan()
         {
-            if(!Profile.isFullPlan)
+            if (Profile.activePlan.ContainsKey(YourName.Content.ToString()) && Profile.activePlan[YourName.Content.ToString()] == "Full")
+            {
+                Occupation_Copy.Visibility = Visibility.Visible;
+                Occupation_Copy1.Visibility = Visibility.Visible;
+                Trainer.Visibility = Visibility.Visible;
+                Trainer1.Visibility = Visibility.Visible;
+                Trainer2.Visibility = Visibility.Visible;
+                Trainer3.Visibility = Visibility.Visible;
+                T1.Visibility = Visibility.Visible;
+                T2.Visibility = Visibility.Visible;
+                T3.Visibility = Visibility.Visible;
+            }
+            else
             {
                 Occupation_Copy.Visibility = Visibility.Hidden;
                 Occupation_Copy1.Visibility = Visibility.Hidden;
@@ -80,18 +92,6 @@ namespace SportsClubApp
                 T1.Visibility = Visibility.Hidden;
                 T2.Visibility = Visibility.Hidden;
                 T3.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                Occupation_Copy.Visibility = Visibility.Visible;
-                Occupation_Copy1.Visibility = Visibility.Visible;
-                Trainer.Visibility = Visibility.Visible;
-                Trainer1.Visibility = Visibility.Visible;
-                Trainer2.Visibility = Visibility.Visible;
-                Trainer3.Visibility = Visibility.Visible;
-                T1.Visibility= Visibility.Visible;
-                T2.Visibility= Visibility.Visible;
-                T3.Visibility= Visibility.Visible;
             }
             
         }

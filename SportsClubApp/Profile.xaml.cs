@@ -22,10 +22,7 @@ namespace SportsClubApp
     /// </summary>
     public partial class Profile : Page
     {
-        public static bool isFullPlan;
-        private static bool isActive = false;
-        private static Dictionary<string, bool> plans = new Dictionary<string, bool>();
-        private static Dictionary<string, SolidColorBrush> rectangles = new Dictionary<string, SolidColorBrush>();
+        public static Dictionary<string, string> activePlan = new Dictionary<string, string>();
         public Profile()
         {
             InitializeComponent();            
@@ -35,29 +32,35 @@ namespace SportsClubApp
             Purchase2.MouseLeave += Purchase_MouseLeave;
             Purchase3.MouseEnter += Purchase_MouseEnter;
             Purchase3.MouseLeave += Purchase_MouseLeave;
-            if(!isActive)
-            {
-                Base.IsEnabled = true;
-                Extended.IsEnabled = true;
-                Full.IsEnabled = true;
-            }
-            foreach (var Tkey in plans.Keys)
-            {
-                Button found = FindName(Tkey) as Button;
-                found.IsEnabled = plans[Tkey];
-                Grid parent = found.Parent as Grid;
-                parent.IsEnabled = true;
-                if(found.IsEnabled == false)
-                {
-                    found.MouseEnter -= Purchase_MouseEnter;
-                    found.MouseLeave -= Purchase_MouseLeave;
-                }
-            }
-            foreach (var Tkey in rectangles.Keys)
-            {
-                Rectangle rectangle = FindName(Tkey) as Rectangle;
+            Loaded += Profile_Loaded;
+        }
 
-                rectangle.Stroke = rectangles[Tkey];
+        private void Profile_Loaded(object sender, RoutedEventArgs e)
+        {
+            Window parentWindow = Window.GetWindow(this);
+            if (parentWindow != null && parentWindow is HomeClient)
+            {
+                HomeClient homeClientWindow = (HomeClient)parentWindow;
+                if(activePlan.ContainsKey(homeClientWindow.YourName.Content.ToString()))
+                {
+                    if (activePlan[homeClientWindow.YourName.Content.ToString()] == "Base")
+                    {
+                        EnablePlan(true, false, false);
+                    }
+                    else if (activePlan[homeClientWindow.YourName.Content.ToString()] == "Extended")
+                    {
+                        EnablePlan(false, true, false);
+                    }
+                    else if (activePlan[homeClientWindow.YourName.Content.ToString()] == "Full")
+                    {
+                        EnablePlan(false, false, true);
+                    }
+                }
+                else
+                {
+
+                }
+
             }
         }
 
@@ -92,53 +95,73 @@ namespace SportsClubApp
                 Plan3.Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF000000"));
             }
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void EnablePlan(bool basePlan, bool extendedPlan, bool fullPlan)
         {
             SolidColorBrush color = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF000000"));
-            if ((sender as Button).Name == "Purchase1")
+            if (basePlan)
             {
                 Purchase1.MouseEnter -= Purchase_MouseEnter;
                 Purchase1.MouseLeave -= Purchase_MouseLeave;
                 Plan1.Stroke = color;
                 Purchase1.IsEnabled = false;
-                rectangles[Plan1.Name] = color;
-                plans[Purchase1.Name] = false;
-                isActive = true;
+                Window parentWindow = Window.GetWindow(this);
+                if (parentWindow != null && parentWindow is HomeClient)
+                {
+                    HomeClient homeClientWindow = (HomeClient)parentWindow;
+                    activePlan[homeClientWindow.YourName.Content.ToString()] = "Base";
+
+                }
                 Extended.IsEnabled = false;
                 Full.IsEnabled = false;
             }
-            else if ((sender as Button).Name == "Purchase2")
+            else if(extendedPlan)
             {
                 Purchase2.MouseEnter -= Purchase_MouseEnter;
                 Purchase2.MouseLeave -= Purchase_MouseLeave;
                 Plan2.Stroke = color;
                 Purchase2.IsEnabled = false;
-                rectangles[Plan2.Name] = color;
-                plans[Purchase2.Name] = false;
-                isActive = true;
+                Window parentWindow = Window.GetWindow(this);
+                if (parentWindow != null && parentWindow is HomeClient)
+                {
+                    HomeClient homeClientWindow = (HomeClient)parentWindow;
+                    activePlan[homeClientWindow.YourName.Content.ToString()] = "Extended";
+                    
+                }
                 Base.IsEnabled = false;
                 Full.IsEnabled = false;
             }
-            else if ((sender as Button).Name == "Purchase3")
+            else if(fullPlan)
             {
                 Purchase3.MouseEnter -= Purchase_MouseEnter;
                 Purchase3.MouseLeave -= Purchase_MouseLeave;
                 Plan3.Stroke = color;
                 Purchase3.IsEnabled = false;
-                rectangles[Plan3.Name] = color;
-                plans[Purchase3.Name] = false;
-                isFullPlan = true;
                 Window parentWindow = Window.GetWindow(this);
                 if (parentWindow != null && parentWindow is HomeClient)
                 {
                     HomeClient homeClientWindow = (HomeClient)parentWindow;
+                    activePlan[homeClientWindow.YourName.Content.ToString()] = "Full";
                     homeClientWindow.FullPlan();
                     homeClientWindow.InvalidateVisual();
                 }
-                isActive = true;
                 Base.IsEnabled = false;
                 Extended.IsEnabled = false;
+            }
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+            if ((sender as Button).Name == "Purchase1")
+            {
+                EnablePlan(true, false, false);  
+            }
+            else if ((sender as Button).Name == "Purchase2")
+            {
+                EnablePlan(false, true, false);   
+            }
+            else if ((sender as Button).Name == "Purchase3")
+            {
+                EnablePlan(false, false, true);
             }
             
         }
