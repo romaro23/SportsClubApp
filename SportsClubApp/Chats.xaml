@@ -11,8 +11,8 @@
     <Page.Resources>
         <DataTemplate DataType="{x:Type models:CustomMessage}">
             <Grid HorizontalAlignment="Left" Margin="2">
-                <Rectangle Fill="#FF32D5D5" RadiusX="10" RadiusY="10"/>
-                <Border BorderBrush="#FF32D5D5" BorderThickness="0"
+                <Rectangle Fill="#E47CFFFF" RadiusX="10" RadiusY="10"/>
+                <Border BorderBrush="#E47CFFFF" BorderThickness="0"
         SnapsToDevicePixels="True">
                     <TextBlock FontFamily="Bahnschrift" Text="{Binding Text}"
                Margin="5"/>
@@ -22,8 +22,8 @@
 
         <DataTemplate DataType="{x:Type models:MyMessage}">
             <Grid HorizontalAlignment="Right" Margin="2">
-                <Rectangle Fill="#FF32D5D5" RadiusX="10" RadiusY="10"/>
-                <Border BorderBrush="#FF32D5D5" BorderThickness="0"
+                <Rectangle Fill="#E47CFFFF" RadiusX="10" RadiusY="10"/>
+                <Border BorderBrush="#E47CFFFF" BorderThickness="0"
                         SnapsToDevicePixels="True">
                     <TextBlock FontFamily="Bahnschrift" Text="{Binding Text}"
                                Margin="5"/>
@@ -38,7 +38,7 @@
                 <ImageBrush ImageSource="C:\Users\Romaro\source\repos\C#\SportsClubApp\SportsClubApp\Back.jpg"></ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Grid Name="Base" Margin="108,26,112,55" Visibility="Visible">
+        <Grid Name="Base" Margin="108,26,112,55" Visibility="Hidden">
             <Rectangle Stroke="#FF32D5D5" RadiusX="20" RadiusY="20" StrokeThickness="5" Fill="#E47CFFFF" IsHitTestVisible="False"/>
             <ListBox ItemContainerStyle="{StaticResource ListBoxItemStyle1}" Style="{DynamicResource ListBoxStyle1}" ScrollViewer.VerticalScrollBarVisibility="Hidden" x:Name="ListBox" Margin="36,65,28,43" Background="#E44DCFCF"/>
             <TextBox HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{DynamicResource SendBox}" x:Name="SendBox" RenderTransformOrigin="0.318,1.372" FontWeight="Bold" FontFamily="Bahnschrift" Margin="36,334,62,13" />

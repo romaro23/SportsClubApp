@@ -95,9 +95,9 @@ namespace SportsClubApp
             }
             
         }
-        protected override void OnClosed(EventArgs e)
+        protected override void OnActivated(EventArgs e)
         {
-            base.OnClosed(e);
+            base.OnActivated(e);
             if(YourName.Content != null && ActiveNM.Content != null)
             {
                 MirrorMessages(YourName.Content.ToString() + "With" + "Trainer" + ActiveNM.Content.ToString());

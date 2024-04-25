@@ -35,6 +35,7 @@ namespace SportsClubApp
         public HomeAdmin()
         {
             InitializeComponent();
+            Frame.Content = stats;
             T1.Content = FirstTrainer.Item1;
             Trainer1.IsEnabled = FirstTrainer.Item2;
             T2.Content = SecondTrainer.Item1;
@@ -48,9 +49,9 @@ namespace SportsClubApp
             Password.GotFocus += PasswordGotFocus;
             Password.LostFocus += PasswordLostFocus;
         }
-        protected override void OnClosed(EventArgs e)
+        protected override void OnActivated(EventArgs e)
         {
-            base.OnClosed(e);            
+            base.OnActivated(e);            
             if(T1.Content != null)
             {
                 MirrorMessages(T1.Content.ToString() + "With" + "Admin");

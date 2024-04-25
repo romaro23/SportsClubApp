@@ -51,9 +51,9 @@ namespace SportsClubApp
                 home.TomorrowBox.IsHitTestVisible = false;
             }
         }
-        protected override void OnClosed(EventArgs e)
+        protected override void OnActivated(EventArgs e)
         {
-            base.OnClosed(e);           
+            base.OnActivated(e);           
             if(ActiveNM.Content != null)
             {
                 MirrorMessages(ActiveNM.Content.ToString() + "With" + "Trainer" + name_);

@@ -51,6 +51,7 @@ namespace SportsClubApp
                 if(SendBox.Text != "")
                 {
                     trainers[currentName].Add(new MyMessage(SendBox.Text));
+                    SendBox.Text = "";
                 }               
 
             }
