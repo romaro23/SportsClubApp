@@ -143,5 +143,13 @@ namespace SportsClubApp
             }
             
         }
+
+        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        {
+            Help help = new Help();
+            help.Topmost = true;
+            help.webBrowser.Navigate(new Uri(@"D:\Sportify\vikno_re_stratsii.html"));
+            help.Show();
+        }
     }
 }

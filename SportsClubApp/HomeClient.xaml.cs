@@ -277,5 +277,25 @@ namespace SportsClubApp
             }
             
         }
+
+        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        {
+            Help help = new Help();
+            help.Topmost = true;
+            if (Frame.Content == profile)
+            {
+                help.webBrowser.Navigate(new Uri(@"D:\Sportify\profil_2.html"));
+            }
+            else if (Frame.Content == chats)
+            {
+                help.webBrowser.Navigate(new Uri(@"D:\Sportify\storinka_chatu_3.html"));
+            }
+            else
+            {
+                help.webBrowser.Navigate(new Uri(@"D:\Sportify\domashnya_storinka_3.html"));
+            }
+
+            help.Show();
+        }
     }
 }

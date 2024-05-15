@@ -1,5 +1,8 @@
-﻿using System.CodeDom;
+﻿using GroupDocs.Viewer;
+using GroupDocs.Viewer.Options;
+using System.CodeDom;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.Design;
 using System.IO;
 using System.Text;
 using System.Windows;
@@ -167,6 +170,14 @@ namespace SportsClubApp
             {
                 PasswordLabel.Content = "Enter your password";
             }           
+        }
+
+        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        {
+            Help help = new Help();
+            help.Topmost = true;
+            help.webBrowser.Navigate(new Uri(@"D:\Sportify\vikno_vkhodu.html"));
+            help.Show();
         }
     }
 }

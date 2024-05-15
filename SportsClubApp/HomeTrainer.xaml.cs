@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SportsClubApp
 {
@@ -160,6 +161,26 @@ namespace SportsClubApp
             }
             
             
+        }
+
+        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        {
+            Help help = new Help();
+            help.Topmost = true;
+            if (Frame.Content == trainer)
+            {
+                help.webBrowser.Navigate(new Uri(@"D:\Sportify\profil_1.html"));
+            }
+            else if (Frame.Content == chats)
+            {
+                help.webBrowser.Navigate(new Uri(@"D:\Sportify\storinka_chatu_2.html"));
+            }
+            else
+            {
+                help.webBrowser.Navigate(new Uri(@"D:\Sportify\domashnya_storinka_2.html"));
+            }
+
+            help.Show();
         }
     }
 }

@@ -15,6 +15,7 @@
   <ItemGroup>
     <PackageReference Include="DotNetProjects.WpfToolkit.DataVisualization" Version="6.1.94" />
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.0" />
+    <PackageReference Include="GroupDocs.Viewer" Version="24.4.0" />
     <PackageReference Include="MaterialDesignColors" Version="3.0.0" />
     <PackageReference Include="MaterialDesignThemes" Version="5.0.0" />
     <PackageReference Include="MaterialDesignThemes.MahApps" Version="1.0.0" />
@@ -28,7 +29,6 @@
       <HintPath>..\..\..\..\..\.nuget\packages\extended.wpf.toolkit\4.6.0\lib\net5.0\Xceed.Wpf.Toolkit.NET5.dll</HintPath>
     </Reference>
   </ItemGroup>
-
   <ItemGroup>
     <Resource Include="pngwing.com (7).png" />
   </ItemGroup>
