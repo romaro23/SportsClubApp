@@ -35,7 +35,7 @@
     <Grid >
         <Rectangle  HorizontalAlignment="Left" Height="430" VerticalAlignment="Top" Width="556" RenderTransformOrigin="0.5,0.5" Margin="-1,0,0,0">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="C:\Users\Romaro\source\repos\C#\SportsClubApp\SportsClubApp\Back.jpg"></ImageBrush>
+                <ImageBrush ImageSource="\Assets\Backgrounds\Back.jpg"></ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
         <Grid Name="Base" Margin="108,26,112,55" Visibility="Hidden">
@@ -43,11 +43,11 @@
             <ListBox ItemContainerStyle="{StaticResource ListBoxItemStyle1}" Style="{DynamicResource ListBoxStyle1}" ScrollViewer.VerticalScrollBarVisibility="Hidden" x:Name="ListBox" Margin="36,65,28,43" Background="#E44DCFCF"/>
             <TextBox HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{DynamicResource SendBox}" x:Name="SendBox" RenderTransformOrigin="0.318,1.372" FontWeight="Bold" FontFamily="Bahnschrift" Margin="36,334,62,13" />
             <Button x:Name="Send" Click="Button_Click" RenderTransformOrigin="0.5,0.5"  Style="{DynamicResource SendButton}" Margin="274,331,28,10">
-                <Image Source="C:\Users\Romaro\Downloads\icons\pngwing.com (8).png" Height="28" Width="23"/>
+                <Image Source="\Assets\Icons\pngwing.com (8).png" Height="28" Width="23"/>
             </Button>
             <Label x:Name="Name" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Width="188" Margin="141,18,0,316"/>
             <Ellipse HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Fill="#FF32D5D5" Margin="85,10,0,0"/>
-            <Image Source="C:\Users\Romaro\Downloads\icons\pngwing.com (3).png"  Width="22" Height="29" Margin="99,21,217,319"/>
+            <Image Source="\Assets\Icons\pngwing.com (3).png"  Width="22" Height="29" Margin="99,21,217,319"/>
         </Grid>
 
     </Grid>

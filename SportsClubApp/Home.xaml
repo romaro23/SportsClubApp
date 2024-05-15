@@ -12,7 +12,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\Romaro\source\repos\C#\SportsClubApp\SportsClubApp\Back.jpg"></ImageBrush>
+            <ImageBrush ImageSource="\Assets\Backgrounds\Back.jpg"></ImageBrush>
         </Grid.Background>
 
         <Rectangle Margin="10,101,10,0" RadiusX="5" RadiusY="5"  Height="162"  Stroke="#FF32D5D5" Fill="#E47CFFFF" VerticalAlignment="Top"/>

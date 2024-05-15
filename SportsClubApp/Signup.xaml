@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="SportsClub" Height="502" Width="900" Cursor="Arrow" WindowStyle="ToolWindow" ResizeMode="NoResize">
     <Window.Background>
-        <ImageBrush ImageSource="C:\Users\Romaro\Downloads\Backgrounds\gym.jpg"></ImageBrush>
+        <ImageBrush ImageSource="\Assets\Backgrounds\gym.jpg"></ImageBrush>
     </Window.Background>
     <Window.Resources>
         <Style x:Key="FocusVisual">
@@ -136,7 +136,7 @@
         </Label>
         <Label Content="Sign up" HorizontalAlignment="Center" Margin="0,142,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="32" Height="51" Width="128" Foreground="#FF597075"/>
         <Label Content="Join the club&#xA;" HorizontalAlignment="Center" Margin="0,185,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="13" Foreground="#FF597075"/>
-        <Image Source="C:\Users\Romaro\Downloads\icons\pngwing.com.png" Margin="419,66,419,376" Stretch="None"/>
+        <Image Source="\Assets\Icons\pngwing.com.png" Margin="419,66,419,376" Stretch="None"/>
         <Button x:Name="SignupButton"
                 Click="SignupButton_Click" Style="{DynamicResource LoginButton}" Content="Sign up" HorizontalAlignment="Center" Height="25" Margin="0,358,0,0" VerticalAlignment="Top" Width="130" BorderBrush="White" Background="#FFFFF6F6" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="15" Foreground="#FF597075"/>
         <TextBox Style="{DynamicResource EmailInput}" TextWrapping="NoWrap"  

@@ -13,7 +13,7 @@
     <Grid>
         <Rectangle  HorizontalAlignment="Center" Height="460" VerticalAlignment="Top" Width="560">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="C:\Users\Romaro\source\repos\C#\SportsClubApp\SportsClubApp\Back.jpg"></ImageBrush>
+                <ImageBrush ImageSource="\Assets\Backgrounds\Back.jpg"></ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Margin="10,182,12,0" RadiusX="5" RadiusY="5"  Height="215"  Stroke="#FF32D5D5" Fill="#E47CFFFF" VerticalAlignment="Top" Width="538"/>

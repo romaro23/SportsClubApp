@@ -11,7 +11,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\Romaro\source\repos\C#\SportsClubApp\SportsClubApp\Back.jpg"></ImageBrush>
+            <ImageBrush ImageSource="\Assets\Backgrounds\Back.jpg"></ImageBrush>
         </Grid.Background>
         <dvc:Chart Title="Plans purchasing" InkCanvas.Top="80" InkCanvas.Left="10" Name="PlansChart" Background="#FF37DAE6" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="16" Margin="263,10,10,240">
             <dvc:Chart.Series>

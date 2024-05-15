@@ -113,8 +113,13 @@ namespace SportsClubApp
         {
             if(VerifyData(EmailInput, PasswordInput)  )
             {
-                Dictionary<Tuple<string, string>, string> trainers = ReadTrainers("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Trainers.txt");
-                Dictionary<Tuple<string, string>, string> clients = ReadClients("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Clients.txt");
+                string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+                string relativePath = "\\Trainers.txt";
+                string directory = projectDirectory + relativePath;
+                Dictionary<Tuple<string, string>, string> trainers = ReadTrainers(directory);
+                relativePath = "\\Clients.txt";
+                directory = projectDirectory + relativePath;
+                Dictionary<Tuple<string, string>, string> clients = ReadClients(directory);
                 Tuple<string, string> pair = new Tuple<string, string>(EmailInput.Text, PasswordInput.Password);
                 if (trainers.TryGetValue(pair, out var foundTrainer))
                 {                   
@@ -174,9 +179,10 @@ namespace SportsClubApp
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)
         {
+            string directory = @"D:\Sportify\vikno_vkhodu.html";
             Help help = new Help();
             help.Topmost = true;
-            help.webBrowser.Navigate(new Uri(@"D:\Sportify\vikno_vkhodu.html"));
+            help.webBrowser.Navigate(new Uri(directory));
             help.Show();
         }
     }

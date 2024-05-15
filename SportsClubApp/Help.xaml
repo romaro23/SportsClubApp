@@ -6,6 +6,5 @@
         <WebBrowser x:Name="webBrowser" Source="D:/Sportify/index.html">
 
         </WebBrowser>
-
     </Grid>
 </Window>

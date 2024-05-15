@@ -134,7 +134,10 @@ namespace SportsClubApp
                 }
                 else
                 {
-                    StreamWriter writer = new StreamWriter("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Clients.txt", true);
+                    string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+                    string relativePath = "\\Clients.txt";
+                    string directory = projectDirectory + relativePath;
+                    StreamWriter writer = new StreamWriter(directory, true);
                     writer.WriteLine(EmailInput.Text + " " + PasswordInput.Password);                    
                     writer.Close();
                     OpenHomeWindow(sender, e);
@@ -146,9 +149,10 @@ namespace SportsClubApp
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)
         {
+            string directory = @"D:\Sportify\vikno_re_stratsii.html";
             Help help = new Help();
             help.Topmost = true;
-            help.webBrowser.Navigate(new Uri(@"D:\Sportify\vikno_re_stratsii.html"));
+            help.webBrowser.Navigate(new Uri(directory));
             help.Show();
         }
     }

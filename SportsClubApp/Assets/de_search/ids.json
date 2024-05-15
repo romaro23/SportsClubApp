@@ -1,0 +1,23 @@
+{
+	"1": ["Sportify довідка", "index.html", []],
+	"2": ["1. Глосарій", "glosarij.html", []],
+	"3": ["1.1. Оглядова довідка", "oglyadova_dovidka.html", [1]],
+	"4": ["2. Початок роботи та реєстрація", "pochatok_roboti_ta_re_stratsiya.html", []],
+	"5": ["2.1. Вікно входу", "vikno_vkhodu.html", [2]],
+	"6": ["2.2. Вікно реєстрації", "vikno_re_stratsii.html", [2]],
+	"7": ["3. Акаунт адміністратора", "akaunt_administratora.html", []],
+	"8": ["3.1. Домашня сторінка", "domashnya_storinka_1.html", [3]],
+	"9": ["3.1.1. Створення акаунта для тренера", "stvorennya_akaunta_dlya_trenera.html", [3,9]],
+	"10": ["3.1.2. Створення графіку роботи для тренера", "stvorennya_grafiku_roboti_dlya_trenera.html", [3,9]],
+	"11": ["3.2. Сторінка чату", "storinka_chatu_1.html", [3]],
+	"12": ["4. Акаунт тренера", "akaunt_trenera.html", []],
+	"13": ["4.1. Домашня сторінка", "domashnya_storinka_2.html", [4]],
+	"14": ["4.1.1. Створення розкладу тренувань для підопічного", "stvorennya_rozkladu_trenuvan_dlya_pidopichnogo.html", [4,11]],
+	"15": ["4.2. Сторінка чату", "storinka_chatu_2.html", [4]],
+	"16": ["4.3. Профіль", "profil_1.html", [4]],
+	"17": ["5. Акаунт клієнта", "akaunt_kli_nta.html", []],
+	"18": ["5.1. Домашня сторінка", "domashnya_storinka_3.html", [5]],
+	"19": ["5.1.1. Вибір тренера", "vibir_trenera.html", [5,14]],
+	"20": ["5.2. Сторінка чату", "storinka_chatu_3.html", [5]],
+	"21": ["5.3. Профіль", "profil_2.html", [5]]
+}

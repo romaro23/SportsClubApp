@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -167,19 +168,20 @@ namespace SportsClubApp
         {
             Help help = new Help();
             help.Topmost = true;
+            string directory;
             if (Frame.Content == trainer)
             {
-                help.webBrowser.Navigate(new Uri(@"D:\Sportify\profil_1.html"));
+                directory = @"D:\Sportify\profil_1.html";
             }
             else if (Frame.Content == chats)
             {
-                help.webBrowser.Navigate(new Uri(@"D:\Sportify\storinka_chatu_2.html"));
+                directory = @"D:\Sportify\storinka_chatu_2.html";
             }
             else
             {
-                help.webBrowser.Navigate(new Uri(@"D:\Sportify\domashnya_storinka_2.html"));
+                directory = @"D:\Sportify\domashnya_storinka_2.html";
             }
-
+            help.webBrowser.Navigate(new Uri(directory));
             help.Show();
         }
     }

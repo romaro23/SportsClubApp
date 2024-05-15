@@ -141,8 +141,11 @@ namespace SportsClubApp
             else
             {
                 if (VerifyData(Email, Password))
-                { 
-                    StreamWriter writer = new StreamWriter("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Trainers.txt", true);
+                {
+                    string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+                    string relativePath = "\\Trainers.txt";
+                    string directory = projectDirectory + relativePath;
+                    StreamWriter writer = new StreamWriter(directory, true);
                     writer.WriteLine(Email.Text + " " + Password.Text + " " + Name.Text);
                     writer.Close();
                     if (!Trainer1.IsEnabled)
@@ -307,19 +310,20 @@ namespace SportsClubApp
         {
             Help help = new Help();
             help.Topmost = true;
+            string directory;
             if(Frame.Content == trainer)
             {
-                help.webBrowser.Navigate(new Uri(@"D:\Sportify\stvorennya_grafiku_roboti_dlya_trenera.html"));
+                directory = @"D:\Sportify\stvorennya_grafiku_roboti_dlya_trenera.html";
             }
             else if(Frame.Content == chats) 
             {
-                help.webBrowser.Navigate(new Uri(@"D:\Sportify\storinka_chatu_1.html"));
+                directory = @"D:\Sportify\storinka_chatu_1.html";
             }
             else
             {
-                help.webBrowser.Navigate(new Uri(@"D:\Sportify\domashnya_storinka_1.html"));
+                directory = @"D:\Sportify\domashnya_storinka_1.html";
             }
-            
+            help.webBrowser.Navigate(new Uri(directory));
             help.Show();
         }
     }

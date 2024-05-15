@@ -267,9 +267,12 @@ namespace SportsClubApp
             if(AskName.Text != null && AskName.Text != "")
             {
                 YourName.Content = AskName.Text;
-                string[] lines = File.ReadAllLines("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Clients.txt");
+                string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+                string relativePath = "\\Clients.txt";
+                string directory = projectDirectory + relativePath;
+                string[] lines = File.ReadAllLines(directory);
                 lines[lines.Length - 1] += " " + AskName.Text;
-                File.WriteAllLines("C:\\Users\\Romaro\\source\\repos\\C#\\SportsClubApp\\SportsClubApp\\Clients.txt", lines);
+                File.WriteAllLines(directory, lines);
                 name = AskName.Text;
                 Ask.Visibility = Visibility.Hidden;
                 InvalidateVisual();
@@ -282,19 +285,20 @@ namespace SportsClubApp
         {
             Help help = new Help();
             help.Topmost = true;
+            string directory;
             if (Frame.Content == profile)
             {
-                help.webBrowser.Navigate(new Uri(@"D:\Sportify\profil_2.html"));
+                directory = @"D:\Sportify\profil_2.html";
             }
             else if (Frame.Content == chats)
             {
-                help.webBrowser.Navigate(new Uri(@"D:\Sportify\storinka_chatu_3.html"));
+                directory = @"D:\Sportify\storinka_chatu_3.html";
             }
             else
             {
-                help.webBrowser.Navigate(new Uri(@"D:\Sportify\domashnya_storinka_3.html"));
+                directory = @"D:\Sportify\domashnya_storinka_3.html";
             }
-
+            help.webBrowser.Navigate(new Uri(directory));
             help.Show();
         }
     }

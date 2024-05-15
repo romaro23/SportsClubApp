@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Sportify" Height="502" Width="900" Cursor="Arrow" ResizeMode="NoResize" WindowStyle="ToolWindow" Topmost="True" FontFamily="Bahnschrift" FontWeight="Bold" Opacity="1">
     <Window.Background>
-        <ImageBrush ImageSource="C:\Users\Romaro\Downloads\Backgrounds\gym.jpg"></ImageBrush>
+        <ImageBrush ImageSource="Assets/Backgrounds/gym.jpg"></ImageBrush>
     </Window.Background>
     <Window.Resources>
         <Style x:Key="FocusVisual">
@@ -137,7 +137,7 @@
 
         <Label Content="Log in" HorizontalAlignment="Left" Margin="409,137,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="32" Height="51" Width="100" Foreground="#FF597075"/>
         <Label Content="Join the club&#xA;" HorizontalAlignment="Left" Margin="417,179,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="13" Foreground="#FF597075"/>
-        <Image Source="C:\Users\Romaro\Downloads\icons\pngwing.com.png" Margin="428,60,410,382" Stretch="None"/>
+        <Image Source="\Assets\Icons\pngwing.com.png" Margin="428,60,410,382" Stretch="None"/>
         <Button x:Name="LoginButton" Click="OpenHomeWindow"
                  Style="{DynamicResource LoginButton}" Content="Log in" HorizontalAlignment="Left" Height="25" Margin="394,329,0,0" VerticalAlignment="Top" Width="130" BorderBrush="White" Background="#FFFFF6F6" FontFamily="Bahnschrift" FontWeight="Bold" FontSize="15" Foreground="#FF597075"/>
         <TextBox Style="{DynamicResource EmailInput}" TextWrapping="NoWrap"  
