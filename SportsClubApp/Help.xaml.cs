@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,10 @@ namespace SportsClubApp
     {
         public Help()
         {
-            InitializeComponent();          
+            InitializeComponent();
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+            string directory = projectDirectory + @"\Assets\index.html";
+            webBrowser.Source = new Uri(directory);
         }
     }
 }

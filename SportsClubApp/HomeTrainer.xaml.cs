@@ -166,20 +166,21 @@ namespace SportsClubApp
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)
         {
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
             Help help = new Help();
             help.Topmost = true;
             string directory;
             if (Frame.Content == trainer)
             {
-                directory = @"D:\Sportify\profil_1.html";
+                directory = projectDirectory + @"\Assets\profil_1.html";
             }
             else if (Frame.Content == chats)
             {
-                directory = @"D:\Sportify\storinka_chatu_2.html";
+                directory = projectDirectory + @"\Assets\storinka_chatu_2.html";
             }
             else
             {
-                directory = @"D:\Sportify\domashnya_storinka_2.html";
+                directory = projectDirectory + @"\Assets\domashnya_storinka_2.html";
             }
             help.webBrowser.Navigate(new Uri(directory));
             help.Show();

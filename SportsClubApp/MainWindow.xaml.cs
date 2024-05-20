@@ -179,7 +179,8 @@ namespace SportsClubApp
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)
         {
-            string directory = @"D:\Sportify\vikno_vkhodu.html";
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+            string directory = projectDirectory + @"\Assets\vikno_vkhodu.html";
             Help help = new Help();
             help.Topmost = true;
             help.webBrowser.Navigate(new Uri(directory));

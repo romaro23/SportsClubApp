@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="CHM Viewer" Height="600" Width="1000">
     <Grid>
-        <WebBrowser x:Name="webBrowser" Source="D:/Sportify/index.html">
+        <WebBrowser x:Name="webBrowser">
 
         </WebBrowser>
     </Grid>
